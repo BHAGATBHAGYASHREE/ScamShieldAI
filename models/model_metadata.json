@@ -1,0 +1,22 @@
+{
+  "model_name": "ScamShield-AI-Champion",
+  "version": "1.0.0",
+  "run_id": "9d9fe80681aa4cf581397c52ebf63059",
+  "metrics": {
+    "accuracy": 0.9510547359713222,
+    "precision": 0.9195568400770713,
+    "recall": 0.9103481163567001,
+    "f1_score": 0.914929307452672,
+    "roc_auc": 0.9858031699945949,
+    "train_time_sec": 4.776848793029785,
+    "latency_ms_per_msg": 0.08179811745631388
+  },
+  "training_samples": 29008,
+  "test_samples": 7253,
+  "classes": [
+    "Legitimate",
+    "Scam"
+  ],
+  "timestamp": "2026-09-25T17:50:03Z",
+  "leakage_safe": true
+}
