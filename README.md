@@ -1,5 +1,11 @@
 # ScamShield AI — Scam Communication Risk Analyzer
 
+[![ScamShield AI CI/CD](https://github.com/BHAGATBHAGYASHREE/ScamShieldAI/actions/workflows/docker_build_push.yml/badge.svg)](https://github.com/BHAGATBHAGYASHREE/ScamShieldAI/actions/workflows/docker_build_push.yml)
+[![Docker Image](https://img.shields.io/badge/docker-bhagyashreebhagat%2Fscamshield--ai-blue?logo=docker)](https://hub.docker.com/r/bhagyashreebhagat/scamshield-ai)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-brightgreen.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/API-FastAPI-009688.svg)](https://fastapi.tiangolo.com)
+[![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)](https://streamlit.io)
+
 A production-grade machine learning system designed to protect mobile and digital communication consumers from smishing, fake delivery notices, banking fraud, and coercive social engineering attacks.
 
 ---
