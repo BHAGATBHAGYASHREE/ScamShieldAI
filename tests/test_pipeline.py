@@ -3,7 +3,6 @@ test_pipeline.py - Unit tests for ScamShield AI feature extraction and pipeline
 """
 from pathlib import Path
 import pytest
-import numpy as np
 import pandas as pd
 import joblib
 

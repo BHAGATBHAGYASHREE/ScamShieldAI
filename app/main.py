@@ -22,7 +22,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import sys
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
-from features import ScamFeatureExtractor, identify_scam_category, explain_message_signals
+from features import ScamFeatureExtractor, identify_scam_category, explain_message_signals  # noqa: F401
 from contextlib import asynccontextmanager
 from app.schemas import (
     AnalyzeRequest,

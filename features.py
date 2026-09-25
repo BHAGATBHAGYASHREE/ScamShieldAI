@@ -26,7 +26,7 @@ from __future__ import annotations
 
 import math
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 import numpy as np
 import pandas as pd
