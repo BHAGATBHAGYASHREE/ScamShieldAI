@@ -23,6 +23,7 @@ import sys
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 from features import ScamFeatureExtractor, identify_scam_category, explain_message_signals
+from contextlib import asynccontextmanager
 from app.schemas import (
     AnalyzeRequest,
     AnalyzeResponse,
@@ -31,30 +32,14 @@ from app.schemas import (
     TriggerDetail,
 )
 
-app = FastAPI(
-    title="ScamShield AI API",
-    description="Consumer Cybersecurity Scam Communication Risk Analyzer",
-    version="1.0.0"
-)
-
-# Enable CORS for web clients
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+pipeline: Any = None
+metadata: Dict[str, Any] = {}
 
 MODEL_PATH = PROJECT_ROOT / "models" / "scamshield_pipeline.joblib"
 METADATA_PATH = PROJECT_ROOT / "models" / "model_metadata.json"
 
-pipeline: Any = None
-metadata: Dict[str, Any] = {}
-
-
-@app.on_event("startup")
-def load_artifacts():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     global pipeline, metadata
     if MODEL_PATH.exists():
         try:
@@ -72,6 +57,25 @@ def load_artifacts():
         except Exception as e:
             print(f"[FastAPI Startup Warning] Could not load metadata: {e}")
             metadata = {}
+    yield
+    pipeline = None
+    metadata = {}
+
+app = FastAPI(
+    title="ScamShield AI API",
+    description="Consumer Cybersecurity Scam Communication Risk Analyzer",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+# Enable CORS for web clients
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -146,6 +150,7 @@ def _analyze_single(text: str) -> AnalyzeResponse:
 
 
 @app.post("/analyze", response_model=AnalyzeResponse)
+@app.post("/predict", response_model=AnalyzeResponse)
 def analyze_message(request: AnalyzeRequest):
     """Analyze a single message for fraud, threat signals, and safety guidance."""
     return _analyze_single(request.message)

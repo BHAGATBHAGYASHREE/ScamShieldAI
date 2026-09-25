@@ -8,13 +8,12 @@ from fastapi.testclient import TestClient
 import sys
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
-from app.main import app, load_artifacts
+from app.main import app
 
 
 @pytest.fixture(scope="session")
 def client():
-    # Trigger startup event to load model and metadata
-    load_artifacts()
+    # Using `with TestClient(app)` triggers the lifespan context manager
     with TestClient(app) as test_client:
         yield test_client
 
@@ -44,6 +43,17 @@ def test_analyze_endpoint_real_fake_order(client):
     assert data["trigger_count"] > 0
     assert len(data["safety_recommendations"]) > 0
     assert data["latency_ms"] >= 0.0
+
+
+def test_predict_endpoint_alias(client):
+    payload = {
+        "message": "Your order #AMZ-99381 of Rs. 14,999 has been placed. Call fraud desk immediately at +919876543210 or cancel at bit.ly/cancel-order-now"
+    }
+    response = client.post("/predict", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert data["is_scam"] is True
+    assert data["risk_score"] >= 80.0
 
 
 def test_analyze_endpoint_legitimate_message(client):
