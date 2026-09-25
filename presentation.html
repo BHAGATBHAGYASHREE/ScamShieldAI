@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamShield AI — Product Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F19;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --accent: #10B981;
+      --accent-glow: rgba(16, 185, 129, 0.25);
+      --danger: #EF4444;
+      --warning: #F59E0B;
+      --cyan: #06B6D4;
+      --text: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 10%, #1e293b 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: var(--font-main);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.05);
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 4rem;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1100px;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 0.35rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #10B981, #06B6D4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .sms-box {
+      background: #020617;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-left: 4px solid var(--danger);
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #F87171;
+      margin: 1.5rem 0;
+      line-height: 1.6;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+    }
+
+    .metric-value {
+      font-size: 2.25rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .speaker-notes {
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--cyan);
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #94A3B8;
+    }
+
+    .speaker-notes strong {
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    footer {
+      padding: 1.25rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--card-border);
+      background: rgba(11, 15, 25, 0.9);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    button {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-family: var(--font-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    button:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-1px);
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+    button.primary:hover {
+      background: #059669;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .table-container {
+      margin-top: 1rem;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(255,255,255,0.05);
+      padding: 0.75rem 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>🛡️ ScamShield AI</span>
+      <span class="brand-badge">PRODUCT PITCH</span>
+    </div>
+    <div class="slide-counter" id="slideIndicator">Slide 1 of 7</div>
+  </header>
+
+  <main>
+    <!-- SLIDE 1: THE HOOK -->
+    <div class="slide active" id="slide-1">
+      <span class="tag">The Problem</span>
+      <h1>A <span>Rs. 15,000 Order</span> I Never Placed.</h1>
+      <p class="subtitle">Last month, an unsolicited notification flashed on my phone inducing pure financial panic. This is how social engineering begins.</p>
+      
+      <div class="sms-box">
+        💬 "Your order #AMZ-99381 of Rs. 14,999 has been placed. If you did not make this transaction, call our fraud desk immediately at +919876543210 or cancel at bit.ly/cancel-order-now"
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>⚠️ The Psychology of Smishing</h3>
+          <p>Scammers don't breach firewalls — they hack human psychology. By fabricating an unauthorized charge, they induce fear so victims call the fake call center or click the phishing URL.</p>
+        </div>
+        <div class="card">
+          <h3>🚫 Why Spam Filters Fail</h3>
+          <p>Traditional spam filters look for marketing spam ("Buy cheap medicine"). Modern smishing mimics legitimate enterprise order confirmations and bank KYC notifications.</p>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (0:00 - 0:45)</strong>
+        "Imagine waking up to an SMS saying fifteen thousand rupees was charged to your card for an order you never made. Your heart races. You reach to click the cancel link or call the number. In that single second of panic, billions of dollars are stolen every year. This isn't marketing spam; it's psychological theft. That is why we built ScamShield AI."
+      </div>
+    </div>
+
+    <!-- SLIDE 2: THE PRODUCT -->
+    <div class="slide" id="slide-2">
+      <span class="tag">The Solution</span>
+      <h1>Meet <span>ScamShield AI</span>.</h1>
+      <p class="subtitle">Not a generic spam filter. An explainable, real-time cyber risk analyzer for digital communications.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="metric-value">0–100</div>
+          <div class="metric-label">Calibrated Risk Score</div>
+          <p style="margin-top:0.5rem;">Platt-calibrated probability score reflecting authentic statistical danger, not arbitrary threshold numbers.</p>
+        </div>
+        <div class="card">
+          <div class="metric-value">4 Types</div>
+          <div class="metric-label">Threat Taxonomy</div>
+          <p style="margin-top:0.5rem;">Categorizes threats into Fake Orders, Bank KYC Blocks, Utility Disconnections, and Delivery Traps.</p>
+        </div>
+        <div class="card">
+          <div class="metric-value">0.08 ms</div>
+          <div class="metric-label">Ultra-Low Latency</div>
+          <p style="margin-top:0.5rem;">Engineered for zero-lag mobile protection on standard CPUs without costly GPU server overhead.</p>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (0:45 - 1:30)</strong>
+        "ScamShield AI is an intelligent risk analyzer designed for the consumer. When you receive a suspicious alert, you feed it into ScamShield. In under a tenth of a millisecond, it outputs a calibrated 0 to 100 risk score, identifies the specific attack category, highlights every red-flag trigger, and provides actionable safety directives."
+      </div>
+    </div>
+
+    <!-- SLIDE 3: LIVE DEMO CALLOUT -->
+    <div class="slide" id="slide-3">
+      <span class="tag">Live Product Demo</span>
+      <h1>Experience <span>ScamShield Live</span>.</h1>
+      <p class="subtitle">A full-stack prototype running live: Streamlit UI communicating with a high-performance FastAPI microservice.</p>
+
+      <div class="card" style="text-align: center; padding: 3rem 2rem;">
+        <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 1rem;">🚀 Live End-to-End Walkthrough</h3>
+        <p style="max-width: 600px; margin: 0 auto 1.5rem auto;">
+          We will run the actual unsolicited fake order message live against our champion pipeline, observing trigger extraction, risk meter calculation, and response latency.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem;">
+          <a href="http://localhost:8501" target="_blank" style="text-decoration:none;">
+            <button class="primary" style="padding: 0.8rem 1.75rem; font-size: 1rem;">Open Live Streamlit App ↗</button>
+          </a>
+          <a href="http://localhost:8000/docs" target="_blank" style="text-decoration:none;">
+            <button style="padding: 0.8rem 1.75rem; font-size: 1rem;">FastAPI Swagger Docs ↗</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (1:30 - 3:00)</strong>
+        "Let's switch over to the live application. Notice our sidebar: the UI does zero model inference on its own — it queries our FastAPI microservice as the single source of truth. Now, I click 'Load Author's Real Fake Order SMS' and hit Scan. Instantly: 93.2% Critical Risk. It flags the bit.ly shortened redirect, the callback phone number, and the financial lure, telling the user: 'DO NOT dial this number. Verify directly in the official app.'"
+      </div>
+    </div>
+
+    <!-- SLIDE 4: ARCHITECTURAL DEFENSE -->
+    <div class="slide" id="slide-4">
+      <span class="tag">Engineering Defense</span>
+      <h1>Why This & <span>Better Than The Alternative</span>?</h1>
+      <p class="subtitle">Every design decision was deliberate — balancing consumer real-time constraints against academic complexity.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Our Choice</th>
+              <th>Obvious Alternative</th>
+              <th>Why Ours Wins</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Architecture</strong></td>
+              <td>Hybrid TF-IDF + 18 Cyber Heuristics</td>
+              <td>Heavy LLM (BERT/DeBERTa)</td>
+              <td><strong>0.08ms CPU latency</strong> vs 300ms GPU latency. Zero GPU cloud costs.</td>
+            </tr>
+            <tr>
+              <td><strong>Preprocessing</strong></td>
+              <td>Standalone <code>features.py</code></td>
+              <td>Inline Notebook Transformer</td>
+              <td>Prevents fatal <code>__main__</code> joblib serialization bug in production.</td>
+            </tr>
+            <tr>
+              <td><strong>Serving</strong></td>
+              <td>FastAPI Microservice</td>
+              <td>UI loading model directly</td>
+              <td><strong>Single source of truth:</strong> Eliminates model drift across clients.</td>
+            </tr>
+            <tr>
+              <td><strong>Risk Calibration</strong></td>
+              <td>Sigmoid Platt Scaling</td>
+              <td>Raw SVM/Logit Margins</td>
+              <td>Produces true calibrated probabilities (85% score = 85% risk).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (3:00 - 4:15)</strong>
+        "The professor's core question: Why didn't you just use BERT? Because in mobile security, latency is everything. BERT takes 300 milliseconds on a costly GPU. Our hybrid pipeline combines 18 domain heuristics with pruned n-grams to hit 95.1% accuracy and 0.9858 ROC-AUC in 0.08 milliseconds on a standard CPU. We engineered for production reality, not notebook vanity."
+      </div>
+    </div>
+
+    <!-- SLIDE 5: EXPERIMENTS & RESULTS -->
+    <div class="slide" id="slide-5">
+      <span class="tag">Model Governance</span>
+      <h1>MLflow <span>Experiment Progression</span>.</h1>
+      <p class="subtitle">Systematic iteration across 3 candidate architectures evaluated on 7,253 held-out test messages.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="metric-label">Experiment 1 (Baseline)</div>
+          <h3 style="margin-top:0.5rem;">Vanilla Logistic Regression</h3>
+          <p>Accuracy: 91.2%<br>ROC-AUC: 0.961<br>Misses callback lures & shortened links.</p>
+        </div>
+        <div class="card">
+          <div class="metric-label">Experiment 2 (Tree-based)</div>
+          <h3 style="margin-top:0.5rem;">Heuristic LightGBM</h3>
+          <p>Accuracy: 93.8%<br>ROC-AUC: 0.974<br>Higher inference latency (1.4 ms).</p>
+        </div>
+        <div class="card" style="border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow);">
+          <div class="metric-label" style="color:var(--accent);">Champion Model (Registered)</div>
+          <h3 style="margin-top:0.5rem; color:var(--accent);">Hybrid Calibrated SGD</h3>
+          <p><strong>Accuracy: 95.11%</strong><br><strong>Precision: 91.96%</strong><br><strong>ROC-AUC: 0.9858</strong><br><strong>Latency: 0.08 ms</strong></p>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (4:15 - 5:00)</strong>
+        "We didn't stop at one model. We tracked three distinct architectures in MLflow. The baseline linear model missed obfuscated URLs. Tree-based LightGBM improved accuracy but increased latency. Our registered Champion model — a hybrid calibrated pipeline — achieved our highest precision of 91.96% with near-zero latency, minimizing false alarms for users."
+      </div>
+    </div>
+
+    <!-- SLIDE 6: MLOPS PIPELINE -->
+    <div class="slide" id="slide-6">
+      <span class="tag">Production Infrastructure</span>
+      <h1>Enterprise-Grade <span>MLOps Delivery</span>.</h1>
+      <p class="subtitle">From raw data versioning to automated cloud deployment.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>📦 DVC Pipeline Reproducibility</h3>
+          <p>Multi-stage DAG (<code>prepare_data</code> &rarr; <code>train_and_evaluate</code>) tracking 36,261 messages across 4 raw datasets. Guaranteed zero train-test leakage.</p>
+        </div>
+        <div class="card">
+          <h3>⚡ Automated CI/CD & Docker Hub</h3>
+          <p>GitHub Actions triggers on every git push: runs 13 unit tests, builds a multi-stage Docker container, and auto-pushes to Docker Hub (<code>bhagyashreebhagat/scamshield-ai:latest</code>).</p>
+        </div>
+        <div class="card">
+          <h3>☁️ Cloud Deployment</h3>
+          <p>Render Blueprint (<code>render.yaml</code>) and AWS EC2 user-data script for 1-click cloud launch. Accessible publicly via encrypted live URL.</p>
+        </div>
+        <div class="card">
+          <h3>🛡️ Robustness & Safety</h3>
+          <p>13 automated unit & integration tests covering edge cases (empty strings, extreme entropy, URL parsing, Pydantic validation errors).</p>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (5:00 - 5:45)</strong>
+        "Behind the model sits production-grade MLOps. DVC versions our dataset and pipeline stages. GitHub Actions executes our 13 unit tests and automatically publishes the container to Docker Hub on every commit. And with Render blueprints and EC2 bootstrap scripts, the application runs reachable in the cloud with zero manual drift."
+      </div>
+    </div>
+
+    <!-- SLIDE 7: CONCLUSION & SUMMARY -->
+    <div class="slide" id="slide-7">
+      <span class="tag">Vision & Wrap-up</span>
+      <h1>From Panic to <span>Safety in 0.08ms</span>.</h1>
+      <p class="subtitle">ScamShield AI proves that thoughtful feature engineering beats brute-force compute.</p>
+
+      <div class="grid-3" style="margin: 2rem 0;">
+        <div class="card" style="text-align:center;">
+          <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔒</div>
+          <h3>Protection</h3>
+          <p>Halting smishing and account takeover attempts before victims click or dial.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:2.5rem; margin-bottom:0.5rem;">⚙️</div>
+          <h3>Engineering</h3>
+          <p>FastAPI, Streamlit, MLflow, DVC, Docker CI/CD — built end-to-end.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:2.5rem; margin-bottom:0.5rem;">💡</div>
+          <h3>Takeaway</h3>
+          <p>Domain threat heuristics give models the reasoning that pure word counts miss.</p>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Closing Script (5:45 - 6:15)</strong>
+        "To summarize: ScamShield AI turns a moment of vulnerability into informed defense. By combining cybersecurity domain heuristics with production MLOps, we built an accurate, explainable, and lightning-fast guardian. Thank you, and I look forward to your questions!"
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Use <kbd style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.5rem; border-radius: 4px;">←</kbd> and <kbd style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.5rem; border-radius: 4px;">→</kbd> arrow keys to navigate slides
+    </div>
+    <div class="nav-buttons">
+      <button id="prevBtn" onclick="prevSlide()">← Previous</button>
+      <button class="primary" id="nextBtn" onclick="nextSlide()">Next Slide →</button>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 7;
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((slide, index) => {
+        slide.classList.toggle('active', index + 1 === currentSlide);
+      });
+      document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} of ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextBtn').innerText = (currentSlide === totalSlides) ? 'Finish Pitch 🏁' : 'Next Slide →';
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>
