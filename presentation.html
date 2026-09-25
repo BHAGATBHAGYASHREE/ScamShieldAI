@@ -80,17 +80,34 @@
     main {
       flex: 1;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 2rem 4rem;
+      padding: 1.5rem 3rem;
       position: relative;
+      overflow-y: auto;
+    }
+
+    /* Custom smooth scrollbar */
+    main::-webkit-scrollbar {
+      width: 8px;
+    }
+    main::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    main::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+    main::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
     }
 
     .slide {
       display: none;
       width: 100%;
-      max-width: 1100px;
+      max-width: 1250px;
       animation: fadeIn 0.4s ease forwards;
+      padding-bottom: 2rem;
     }
 
     .slide.active {
@@ -206,39 +223,139 @@
     }
 
     .evidence-container {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
-      margin: 1.25rem 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0;
     }
 
     .evidence-card {
       background: #020617;
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 0.75rem;
+      padding: 0.9rem;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .evidence-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 35px var(--accent-glow);
+    }
+
+    .evidence-step {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.15);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+      border: 1px solid rgba(6, 182, 212, 0.3);
     }
 
     .evidence-img {
-      height: 260px;
+      width: 100%;
+      height: 440px;
+      object-fit: contain;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #000;
       transition: transform 0.2s ease;
     }
 
-    .evidence-img:hover {
-      transform: scale(1.04);
-      border-color: var(--accent);
+    .evidence-caption {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 700;
+      margin-top: 0.6rem;
+      line-height: 1.3;
     }
 
-    .evidence-caption {
-      font-family: var(--font-mono);
+    .evidence-subtext {
       font-size: 0.75rem;
       color: var(--text-muted);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .zoom-hint {
+      font-size: 0.75rem;
+      color: var(--accent);
       margin-top: 0.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    /* Modal / Lightbox Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-img {
+      max-width: 90vw;
+      max-height: 84vh;
+      border-radius: 12px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: modalZoom 0.25s ease forwards;
+    }
+
+    @keyframes modalZoom {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
+    }
+
+    .modal-caption {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: var(--text);
+      font-family: var(--font-main);
+      font-weight: 600;
     }
 
     .speaker-notes {
@@ -355,37 +472,67 @@
     <div class="slide active" id="slide-1">
       <span class="tag">The Real-World Incident</span>
       <h1>"By Mistake Send 3000. <span>Please Return Mam 2000</span>."</h1>
-      <p class="subtitle">Live evidence from my own phone: A scammer fabricated a ₹3,000 payment screenshot to extract ₹2,000 through manufactured urgency.</p>
+      <p class="subtitle">Live evidence from my own phone: How an attacker engineered false guilt and fake receipts to siphon ₹2,000 on WhatsApp. <em>(Click any image to enlarge)</em></p>
       
       <div class="evidence-container">
-        <div class="evidence-card">
-          <img src="assets/scam_evidence_1.png" alt="Scammer asking for phone number and sending fake receipt" class="evidence-img">
-          <div class="evidence-caption">Step 1: Fake Receipt Fabricated (₹3,000)</div>
+        <!-- Step 1 -->
+        <div class="evidence-card" onclick="openModal('assets/evidence_1_setup.png', 'Step 1: Scammer claims scanner failed to extract the author\'s direct phone number')">
+          <div>
+            <span class="evidence-step">Step 1: The Lure</span>
+            <img src="assets/evidence_1_setup.png" alt="Scanner not supported - phone requested" class="evidence-img">
+          </div>
+          <div>
+            <div class="evidence-caption">"Scanner Not Supported Mam"</div>
+            <div class="evidence-subtext">User sent ₹1,000 QR. Scammer pretends scanner failed to get direct phone number.</div>
+            <div class="zoom-hint">🔍 Click to zoom full-screen</div>
+          </div>
         </div>
-        <div class="evidence-card">
-          <img src="assets/scam_evidence_2.jpg" alt="Scammer demanding ₹2,000 refund with their QR" class="evidence-img">
-          <div class="evidence-caption">Step 2: Panic Lure & Fake Refund QR</div>
+
+        <!-- Step 2 -->
+        <div class="evidence-card" onclick="openModal('assets/evidence_2_receipt.jpg', 'Step 2: Scammer sends forged receipt showing ₹3,000 paid')">
+          <div>
+            <span class="evidence-step">Step 2: The Forgery</span>
+            <img src="assets/evidence_2_receipt.jpg" alt="Forged 3000 paid receipt" class="evidence-img">
+          </div>
+          <div>
+            <div class="evidence-caption">Forged ₹3,000 "Paid" Receipt</div>
+            <div class="evidence-subtext">Scammer sends fabricated transaction proof to manufacture an accidental overpayment.</div>
+            <div class="zoom-hint">🔍 Click to zoom full-screen</div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="evidence-card" onclick="openModal('assets/evidence_3_refund_scam.png', 'Step 3: Scammer creates manufactured urgency and demands ₹2,000 refund with their QR')">
+          <div>
+            <span class="evidence-step" style="color:var(--danger); background:rgba(239,68,68,0.15); border-color:rgba(239,68,68,0.3);">Step 3: The Siphon</span>
+            <img src="assets/evidence_3_refund_scam.png" alt="Scammer demands refund with QR" class="evidence-img">
+          </div>
+          <div>
+            <div class="evidence-caption">"By Mistake Send 3000"</div>
+            <div class="evidence-subtext">Scammer attaches their PhonePe QR demanding immediate refund of ₹2,000. Author blocks them.</div>
+            <div class="zoom-hint">🔍 Click to zoom full-screen</div>
+          </div>
         </div>
       </div>
 
       <div class="sms-box">
-        💬 Scammer: "Hlo mam. By mistake send 3000. Please return mam 2000" [Sends QR Code] &rarr; User blocks fraudster.
+        💬 <strong>The Anatomy of the Trap:</strong> Scammer fabricates ₹3,000 transfer &rarr; Creates urgency ("Please return mam 2000") &rarr; Sends their own QR to siphon real victim funds.
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>🎭 The "Overpayment" Trap</h3>
-          <p>The scammer never sent ₹3,000. They forged a receipt to create false guilt and urgent panic, pressuring the victim to "refund" ₹2,000 of their own hard-earned money.</p>
+          <h3>🎭 The Psychological Weapon</h3>
+          <p>The scammer never sent ₹3,000. They weaponized false guilt and urgency. In the confusion, victims panic and return ₹2,000 of their own money without checking their bank account.</p>
         </div>
         <div class="card">
-          <h3>🚫 Why Spam Filters Failed</h3>
-          <p>This conversation happened over chat. No spam filter flagged it because it used conversational text and payment screenshots. We need proactive risk analysis before the user pays.</p>
+          <h3>🚫 Why Standard Filters Fail</h3>
+          <p>Traditional spam filters look for marketing keywords. This attack used conversational language and images inside WhatsApp. We need intelligent communication analysis before money moves.</p>
         </div>
       </div>
 
       <div class="speaker-notes">
         <strong>Speaker Script (0:00 - 0:45)</strong>
-        "Look at the screen. This isn't a hypothetical case study from a textbook—this happened directly to me. A buyer named 'Harbhajan' asked for my QR code for a 1,000 rupee item. He claimed his scanner failed, got my phone number, and sent a fake screenshot claiming he 'accidentally paid 3,000 rupees.' Then came the panic: 'By mistake send 3000. Please return mam 2000,' attaching his own QR code. Millions fall for this emotional trap every year. In that split second of confusion, people send real money. That is why we built ScamShield AI."
+        "Look at the screen. This isn't a textbook example—this happened directly to me on WhatsApp. A buyer named 'Harbhajan' agreed to purchase an item for 1,000 rupees. He claimed his scanner was broken, extracted my phone number, and sent a fabricated screenshot showing he 'accidentally paid 3,000 rupees.' Then came the emotional pressure: 'Hlo mam. By mistake send 3000. Please return mam 2000,' attaching his own PhonePe QR code. In that single moment of confusion, fear, and panic, millions of innocent consumers send real money to fraudsters every single day. This is why we built ScamShield AI."
       </div>
     </div>
 
@@ -599,6 +746,13 @@
     </div>
   </footer>
 
+  <!-- Lightbox Modal for Full-Screen Screenshots -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img class="modal-img" id="modalImg" alt="Enlarged Evidence">
+    <div id="modalCaption" class="modal-caption"></div>
+  </div>
+
   <script>
     let currentSlide = 1;
     const totalSlides = 7;
@@ -626,7 +780,25 @@
       }
     }
 
+    function openModal(src, caption) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const captionText = document.getElementById('modalCaption');
+      modal.classList.add('active');
+      modalImg.src = src;
+      captionText.innerText = caption;
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('active');
+    }
+
     document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('imageModal');
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeModal();
+        return;
+      }
       if (e.key === 'ArrowRight' || e.key === ' ') {
         nextSlide();
       } else if (e.key === 'ArrowLeft') {
