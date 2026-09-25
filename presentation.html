@@ -6,19 +6,18 @@
   <title>ScamShield AI — Product Pitch Deck</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0B0F19;
-      --card-bg: rgba(17, 24, 39, 0.75);
-      --card-border: rgba(255, 255, 255, 0.1);
+      --bg: #090D16;
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
       --accent: #10B981;
       --accent-glow: rgba(16, 185, 129, 0.25);
       --danger: #EF4444;
-      --warning: #F59E0B;
       --cyan: #06B6D4;
-      --text: #F3F4F6;
-      --text-muted: #9CA3AF;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
       --font-main: 'Plus Jakarta Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
@@ -30,7 +29,7 @@
     }
 
     body {
-      background: radial-gradient(circle at 50% 10%, #1e293b 0%, var(--bg) 60%);
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg) 65%);
       color: var(--text);
       font-family: var(--font-main);
       height: 100vh;
@@ -41,12 +40,13 @@
     }
 
     header {
-      padding: 1.5rem 3rem;
+      padding: 1.25rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      z-index: 10;
     }
 
     .brand {
@@ -54,25 +54,26 @@
       align-items: center;
       gap: 0.75rem;
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       letter-spacing: -0.02em;
     }
 
     .brand-badge {
       background: linear-gradient(135deg, var(--accent), var(--cyan));
-      padding: 0.3rem 0.6rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 6px;
       color: #000;
       font-weight: 800;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
     }
 
     .slide-counter {
       font-family: var(--font-mono);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       background: rgba(255,255,255,0.05);
-      padding: 0.35rem 0.8rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 20px;
       border: 1px solid var(--card-border);
     }
@@ -87,26 +88,20 @@
       overflow-y: auto;
     }
 
-    /* Custom smooth scrollbar */
+    /* Sleek custom scrollbar */
     main::-webkit-scrollbar {
-      width: 8px;
-    }
-    main::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.2);
+      width: 6px;
     }
     main::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.2);
-      border-radius: 4px;
-    }
-    main::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
+      border-radius: 3px;
     }
 
     .slide {
       display: none;
       width: 100%;
-      max-width: 1250px;
-      animation: fadeIn 0.4s ease forwards;
+      max-width: 1200px;
+      animation: fadeIn 0.35s ease forwards;
       padding-bottom: 2rem;
     }
 
@@ -115,30 +110,31 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .tag {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--accent);
       background: var(--accent-glow);
-      padding: 0.35rem 0.8rem;
+      padding: 0.3rem 0.75rem;
       border-radius: 50px;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(16, 185, 129, 0.4);
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.75rem;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.2;
       letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     h1 span {
@@ -148,25 +144,33 @@
     }
 
     .subtitle {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 800px;
-      margin-bottom: 2rem;
+      line-height: 1.5;
+      max-width: 850px;
+      margin-bottom: 1.5rem;
     }
 
+    /* Grid Layouts */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 1rem;
     }
 
     .card {
@@ -175,13 +179,13 @@
       border-radius: 16px;
       padding: 1.75rem;
       backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     .card h3 {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -193,40 +197,31 @@
       line-height: 1.5;
     }
 
-    .sms-box {
-      background: #020617;
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      border-left: 4px solid var(--danger);
-      padding: 1.25rem 1.5rem;
-      border-radius: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      color: #F87171;
-      margin: 1.5rem 0;
-      line-height: 1.6;
-      box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
-    }
-
+    /* Hero Metric Cards */
     .metric-value {
-      font-size: 2.25rem;
+      font-size: 2.75rem;
       font-weight: 800;
       font-family: var(--font-mono);
       color: var(--accent);
       margin-bottom: 0.25rem;
+      line-height: 1;
     }
 
     .metric-label {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      font-weight: 700;
+      color: var(--text);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
     }
 
+    /* Evidence Screenshots */
     .evidence-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
-      margin: 1.5rem 0;
+      margin: 1.25rem 0;
     }
 
     .evidence-card {
@@ -265,41 +260,92 @@
 
     .evidence-img {
       width: 100%;
-      height: 440px;
+      height: 400px;
       object-fit: contain;
       border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.12);
       background: #000;
-      transition: transform 0.2s ease;
     }
 
     .evidence-caption {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text);
       font-weight: 700;
       margin-top: 0.6rem;
-      line-height: 1.3;
-    }
-
-    .evidence-subtext {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-      line-height: 1.4;
     }
 
     .zoom-hint {
       font-size: 0.75rem;
       color: var(--accent);
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
     }
 
-    /* Modal / Lightbox Styles */
+    /* Comparison Box */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .compare-box {
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--card-border);
+    }
+
+    .compare-bad {
+      background: rgba(239, 68, 68, 0.05);
+      border-color: rgba(239, 68, 68, 0.25);
+    }
+
+    .compare-good {
+      background: rgba(16, 185, 129, 0.05);
+      border-color: rgba(16, 185, 129, 0.3);
+      box-shadow: 0 10px 30px var(--accent-glow);
+    }
+
+    .pill-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .pill-list li {
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .pill-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Speaker Notes Bar */
+    .speaker-notes {
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--cyan);
+      padding: 0.9rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+
+    .speaker-notes strong {
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Lightbox Modal */
     .modal {
       display: none;
       position: fixed;
@@ -308,7 +354,7 @@
       top: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.92);
+      background-color: rgba(0, 0, 0, 0.94);
       backdrop-filter: blur(10px);
       align-items: center;
       justify-content: center;
@@ -322,16 +368,10 @@
 
     .modal-img {
       max-width: 90vw;
-      max-height: 84vh;
+      max-height: 85vh;
       border-radius: 12px;
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      animation: modalZoom 0.25s ease forwards;
-    }
-
-    @keyframes modalZoom {
-      from { transform: scale(0.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     .modal-close {
@@ -340,50 +380,25 @@
       right: 35px;
       color: #fff;
       font-size: 2.5rem;
-      font-weight: 300;
       cursor: pointer;
-      transition: color 0.2s ease;
-      line-height: 1;
-    }
-
-    .modal-close:hover {
-      color: var(--accent);
     }
 
     .modal-caption {
       margin-top: 1rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--text);
-      font-family: var(--font-main);
       font-weight: 600;
     }
 
-    .speaker-notes {
-      margin-top: 1.5rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid var(--cyan);
-      padding: 1rem 1.25rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      color: #94A3B8;
-    }
-
-    .speaker-notes strong {
-      color: var(--cyan);
-      display: block;
-      margin-bottom: 0.25rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
+    /* Footer & Navigation */
     footer {
       padding: 1.25rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid var(--card-border);
-      background: rgba(11, 15, 25, 0.9);
+      background: rgba(9, 13, 22, 0.95);
+      z-index: 10;
     }
 
     .nav-buttons {
@@ -410,7 +425,6 @@
     button:hover {
       background: rgba(255,255,255,0.15);
       border-color: rgba(255,255,255,0.3);
-      transform: translateY(-1px);
     }
 
     button.primary {
@@ -422,38 +436,6 @@
     button.primary:hover {
       background: #059669;
       box-shadow: 0 0 20px var(--accent-glow);
-    }
-
-    .table-container {
-      margin-top: 1rem;
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-
-    th {
-      background: rgba(255,255,255,0.05);
-      padding: 0.75rem 1rem;
-      color: var(--accent);
-      font-weight: 600;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      color: var(--text);
-    }
-
-    tr:last-child td {
-      border-bottom: none;
     }
   </style>
 </head>
@@ -468,270 +450,228 @@
   </header>
 
   <main>
-    <!-- SLIDE 1: THE HOOK -->
+    <!-- SLIDE 1: THE REAL ATTACK -->
     <div class="slide active" id="slide-1">
-      <span class="tag">The Real-World Incident</span>
+      <span class="tag">The Incident</span>
       <h1>"By Mistake Send 3000. <span>Please Return Mam 2000</span>."</h1>
-      <p class="subtitle">Live evidence from my own phone: How an attacker engineered false guilt and fake receipts to siphon ₹2,000 on WhatsApp. <em>(Click any image to enlarge)</em></p>
-      
+      <p class="subtitle">Live evidence from my phone: An attacker fabricated a ₹3,000 receipt to siphon ₹2,000 in panic.</p>
+
       <div class="evidence-container">
         <!-- Step 1 -->
-        <div class="evidence-card" onclick="openModal('assets/evidence_1_setup.png', 'Step 1: Scammer claims scanner failed to extract the author\'s direct phone number')">
-          <div>
-            <span class="evidence-step">Step 1: The Lure</span>
-            <img src="assets/evidence_1_setup.png" alt="Scanner not supported - phone requested" class="evidence-img">
-          </div>
-          <div>
-            <div class="evidence-caption">"Scanner Not Supported Mam"</div>
-            <div class="evidence-subtext">User sent ₹1,000 QR. Scammer pretends scanner failed to get direct phone number.</div>
-            <div class="zoom-hint">🔍 Click to zoom full-screen</div>
-          </div>
+        <div class="evidence-card" onclick="openModal('assets/evidence_1_setup.png', 'Step 1: Scammer extracts phone number by claiming scanner failure')">
+          <span class="evidence-step">1. The Lure</span>
+          <img src="assets/evidence_1_setup.png" alt="Scanner not supported" class="evidence-img">
+          <div class="evidence-caption">"Scanner Not Supported Mam"</div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
 
         <!-- Step 2 -->
-        <div class="evidence-card" onclick="openModal('assets/evidence_2_receipt.jpg', 'Step 2: Scammer sends forged receipt showing ₹3,000 paid')">
-          <div>
-            <span class="evidence-step">Step 2: The Forgery</span>
-            <img src="assets/evidence_2_receipt.jpg" alt="Forged 3000 paid receipt" class="evidence-img">
-          </div>
-          <div>
-            <div class="evidence-caption">Forged ₹3,000 "Paid" Receipt</div>
-            <div class="evidence-subtext">Scammer sends fabricated transaction proof to manufacture an accidental overpayment.</div>
-            <div class="zoom-hint">🔍 Click to zoom full-screen</div>
-          </div>
+        <div class="evidence-card" onclick="openModal('assets/evidence_2_receipt.jpg', 'Step 2: Scammer sends forged ₹3,000 payment screenshot')">
+          <span class="evidence-step">2. The Forgery</span>
+          <img src="assets/evidence_2_receipt.jpg" alt="Forged 3000 receipt" class="evidence-img">
+          <div class="evidence-caption">Forged ₹3,000 Receipt</div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
 
         <!-- Step 3 -->
-        <div class="evidence-card" onclick="openModal('assets/evidence_3_refund_scam.png', 'Step 3: Scammer creates manufactured urgency and demands ₹2,000 refund with their QR')">
-          <div>
-            <span class="evidence-step" style="color:var(--danger); background:rgba(239,68,68,0.15); border-color:rgba(239,68,68,0.3);">Step 3: The Siphon</span>
-            <img src="assets/evidence_3_refund_scam.png" alt="Scammer demands refund with QR" class="evidence-img">
-          </div>
-          <div>
-            <div class="evidence-caption">"By Mistake Send 3000"</div>
-            <div class="evidence-subtext">Scammer attaches their PhonePe QR demanding immediate refund of ₹2,000. Author blocks them.</div>
-            <div class="zoom-hint">🔍 Click to zoom full-screen</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sms-box">
-        💬 <strong>The Anatomy of the Trap:</strong> Scammer fabricates ₹3,000 transfer &rarr; Creates urgency ("Please return mam 2000") &rarr; Sends their own QR to siphon real victim funds.
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>🎭 The Psychological Weapon</h3>
-          <p>The scammer never sent ₹3,000. They weaponized false guilt and urgency. In the confusion, victims panic and return ₹2,000 of their own money without checking their bank account.</p>
-        </div>
-        <div class="card">
-          <h3>🚫 Why Standard Filters Fail</h3>
-          <p>Traditional spam filters look for marketing keywords. This attack used conversational language and images inside WhatsApp. We need intelligent communication analysis before money moves.</p>
+        <div class="evidence-card" onclick="openModal('assets/evidence_3_refund_scam.png', 'Step 3: Scammer demands ₹2,000 refund with their QR code')">
+          <span class="evidence-step" style="color:var(--danger); background:rgba(239,68,68,0.15);">3. The Siphon</span>
+          <img src="assets/evidence_3_refund_scam.png" alt="Scammer refund demand" class="evidence-img">
+          <div class="evidence-caption">"Please Return Mam 2000"</div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
       </div>
 
       <div class="speaker-notes">
-        <strong>Speaker Script (0:00 - 0:45)</strong>
-        "Look at the screen. This isn't a textbook example—this happened directly to me on WhatsApp. A buyer named 'Harbhajan' agreed to purchase an item for 1,000 rupees. He claimed his scanner was broken, extracted my phone number, and sent a fabricated screenshot showing he 'accidentally paid 3,000 rupees.' Then came the emotional pressure: 'Hlo mam. By mistake send 3000. Please return mam 2000,' attaching his own PhonePe QR code. In that single moment of confusion, fear, and panic, millions of innocent consumers send real money to fraudsters every single day. This is why we built ScamShield AI."
+        <strong>Speaker Script (0:00 – 0:45)</strong>
+        "Look at this screenshot. This happened directly to me on WhatsApp. A buyer claimed his scanner was broken, extracted my phone number, and sent a forged receipt claiming he accidentally sent 3,000 rupees instead of 1,000. Then came the panic: 'Please return mam 2000,' attaching his own QR code. He never sent a single rupee. In that single second of manufactured panic, millions send real money every day. That is why we built ScamShield AI."
       </div>
     </div>
 
-    <!-- SLIDE 2: THE PRODUCT -->
+    <!-- SLIDE 2: THE BLIND SPOT -->
     <div class="slide" id="slide-2">
+      <span class="tag">The Blind Spot</span>
+      <h1>Spam is Annoying. <span>Scams are Financial Theft</span>.</h1>
+      <p class="subtitle">Why traditional spam filters are blind to modern social engineering.</p>
+
+      <div class="compare-container">
+        <div class="compare-box compare-bad">
+          <h3 style="color:var(--danger);">❌ Traditional Spam Filters</h3>
+          <p>Trained to catch repetitive marketing words.</p>
+          <ul class="pill-list">
+            <li><span>🚫</span> Looks for "50% off pizza", "cheap pills"</li>
+            <li><span>🚫</span> Blind to conversational chat & screenshots</li>
+            <li><span>🚫</span> Binary output: "Spam / Ham"</li>
+            <li><span>🚫</span> Zero explanation of why something is dangerous</li>
+          </ul>
+        </div>
+
+        <div class="compare-box compare-good">
+          <h3 style="color:var(--accent);">🛡️ ScamShield AI</h3>
+          <p>Trained on deceptive behavioral signals & urgency.</p>
+          <ul class="pill-list">
+            <li><span>✅</span> Detects emotional coercion & fake refund lures</li>
+            <li><span>✅</span> Identifies obscured links, callbacks, & currency regex</li>
+            <li><span>✅</span> Calibrated 0–100 risk score</li>
+            <li><span>✅</span> Actionable safety directives before money moves</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Speaker Script (0:45 – 1:30)</strong>
+        "Why did standard filters miss this? Because spam filters look for marketing junk. Modern scammers don't send marketing junk. They impersonate banks, order confirmations, and accidental transfers. We don't need a binary spam filter. We need a real-time Cyber Risk Analyzer that explains the threat before the user clicks or pays."
+      </div>
+    </div>
+
+    <!-- SLIDE 3: THE SOLUTION -->
+    <div class="slide" id="slide-3">
       <span class="tag">The Solution</span>
       <h1>Meet <span>ScamShield AI</span>.</h1>
-      <p class="subtitle">Not a generic spam filter. An explainable, real-time cyber risk analyzer for digital communications.</p>
+      <p class="subtitle">Real-time threat triage in 0.08 milliseconds with token-level explainability.</p>
 
       <div class="grid-3">
         <div class="card">
           <div class="metric-value">0–100</div>
           <div class="metric-label">Calibrated Risk Score</div>
-          <p style="margin-top:0.5rem;">Platt-calibrated probability score reflecting authentic statistical danger, not arbitrary threshold numbers.</p>
+          <p>Platt-scaled probability reflecting statistical danger, not arbitrary threshold numbers.</p>
         </div>
         <div class="card">
           <div class="metric-value">4 Types</div>
-          <div class="metric-label">Threat Taxonomy</div>
-          <p style="margin-top:0.5rem;">Categorizes threats into Fake Orders, Bank KYC Blocks, Utility Disconnections, and Delivery Traps.</p>
+          <div class="metric-label">Attack Taxonomy</div>
+          <p>Categorizes Fake Orders, UPI Overpayment Lures, Bank KYC Blocks, and Utility Traps.</p>
         </div>
         <div class="card">
           <div class="metric-value">0.08 ms</div>
-          <div class="metric-label">Ultra-Low Latency</div>
-          <p style="margin-top:0.5rem;">Engineered for zero-lag mobile protection on standard CPUs without costly GPU server overhead.</p>
+          <div class="metric-label">Blazing Fast Latency</div>
+          <p>Standard CPU inference. Runs locally on mobile or edge gateways with zero GPU costs.</p>
         </div>
       </div>
 
       <div class="speaker-notes">
-        <strong>Speaker Script (0:45 - 1:30)</strong>
-        "ScamShield AI is an intelligent risk analyzer designed for the consumer. When you receive a suspicious alert, you feed it into ScamShield. In under a tenth of a millisecond, it outputs a calibrated 0 to 100 risk score, identifies the specific attack category, highlights every red-flag trigger, and provides actionable safety directives."
+        <strong>Speaker Script (1:30 – 2:15)</strong>
+        "Meet ScamShield AI. When a user pastes an unsettling message, in less than a tenth of a millisecond, ScamShield outputs a 0 to 100 risk score, identifies the specific attack category, highlights every red-flag token, and gives immediate directives: 'DO NOT dial this number. Verify directly in your genuine banking app.' Let's see it run live."
       </div>
     </div>
 
-    <!-- SLIDE 3: LIVE DEMO CALLOUT -->
-    <div class="slide" id="slide-3">
-      <span class="tag">Live Product Demo</span>
+    <!-- SLIDE 4: LIVE DEMO -->
+    <div class="slide" id="slide-4">
+      <span class="tag">Live Prototype</span>
       <h1>Experience <span>ScamShield Live</span>.</h1>
-      <p class="subtitle">A full-stack prototype running live: Streamlit UI communicating with a high-performance FastAPI microservice.</p>
+      <p class="subtitle">A full-stack product: Streamlit UI querying a high-performance FastAPI microservice.</p>
 
-      <div class="card" style="text-align: center; padding: 3rem 2rem;">
-        <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 1rem;">🚀 Live End-to-End Walkthrough</h3>
-        <p style="max-width: 600px; margin: 0 auto 1.5rem auto;">
-          We will run the actual unsolicited fake order message live against our champion pipeline, observing trigger extraction, risk meter calculation, and response latency.
+      <div class="card" style="text-align: center; padding: 3.5rem 2rem; margin-top: 1.5rem;">
+        <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 0.75rem;">🚀 End-to-End Live Demonstration</h3>
+        <p style="max-width: 650px; margin: 0 auto 2rem auto; font-size: 1.05rem;">
+          Scanning the author's real-world attack against our registered champion model in real-time.
         </p>
-        <div style="display: flex; justify-content: center; gap: 1rem;">
+
+        <div style="display: flex; justify-content: center; gap: 1.25rem;">
           <a href="http://localhost:8501" target="_blank" style="text-decoration:none;">
-            <button class="primary" style="padding: 0.8rem 1.75rem; font-size: 1rem;">Open Live Streamlit App ↗</button>
+            <button class="primary" style="padding: 0.9rem 2rem; font-size: 1.05rem;">Open Streamlit App ↗</button>
           </a>
           <a href="http://localhost:8000/docs" target="_blank" style="text-decoration:none;">
-            <button style="padding: 0.8rem 1.75rem; font-size: 1rem;">FastAPI Swagger Docs ↗</button>
+            <button style="padding: 0.9rem 2rem; font-size: 1.05rem;">FastAPI Swagger Docs ↗</button>
           </a>
         </div>
+
+        <div style="margin-top: 2rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan);">
+          Streamlit (UI) &rarr; HTTP POST /analyze &rarr; FastAPI &rarr; Calibrated SGD Pipeline (0.08ms)
+        </div>
       </div>
 
       <div class="speaker-notes">
-        <strong>Speaker Script (1:30 - 3:00)</strong>
-        "Let's switch over to the live application. Notice our sidebar: the UI does zero model inference on its own — it queries our FastAPI microservice as the single source of truth. Now, I click 'Load Author's Real Fake Order SMS' and hit Scan. Instantly: 93.2% Critical Risk. It flags the bit.ly shortened redirect, the callback phone number, and the financial lure, telling the user: 'DO NOT dial this number. Verify directly in the official app.'"
+        <strong>Speaker Script (2:15 – 3:45)</strong>
+        "Let's switch to the running app. Our UI does zero model inference on its own — it queries our FastAPI microservice as the single source of truth. Now, I click 'Load Author's Real UPI Overpayment Attack' and hit Scan. Instantly: 92.3% Critical Risk under Payment/Banking Fraud. It detects the artificial urgency, explains the trigger, and provides immediate safety guidance. Then we scan a legitimate Swiggy alert: 0.8% Safe. Zero false alarms."
       </div>
     </div>
 
-    <!-- SLIDE 4: ARCHITECTURAL DEFENSE -->
-    <div class="slide" id="slide-4">
-      <span class="tag">Engineering Defense</span>
-      <h1>Why This & <span>Better Than The Alternative</span>?</h1>
-      <p class="subtitle">Every design decision was deliberate — balancing consumer real-time constraints against academic complexity.</p>
-
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Our Choice</th>
-              <th>Obvious Alternative</th>
-              <th>Why Ours Wins</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Architecture</strong></td>
-              <td>Hybrid TF-IDF + 18 Cyber Heuristics</td>
-              <td>Heavy LLM (BERT/DeBERTa)</td>
-              <td><strong>0.08ms CPU latency</strong> vs 300ms GPU latency. Zero GPU cloud costs.</td>
-            </tr>
-            <tr>
-              <td><strong>Preprocessing</strong></td>
-              <td>Standalone <code>features.py</code></td>
-              <td>Inline Notebook Transformer</td>
-              <td>Prevents fatal <code>__main__</code> joblib serialization bug in production.</td>
-            </tr>
-            <tr>
-              <td><strong>Serving</strong></td>
-              <td>FastAPI Microservice</td>
-              <td>UI loading model directly</td>
-              <td><strong>Single source of truth:</strong> Eliminates model drift across clients.</td>
-            </tr>
-            <tr>
-              <td><strong>Risk Calibration</strong></td>
-              <td>Sigmoid Platt Scaling</td>
-              <td>Raw SVM/Logit Margins</td>
-              <td>Produces true calibrated probabilities (85% score = 85% risk).</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="speaker-notes">
-        <strong>Speaker Script (3:00 - 4:15)</strong>
-        "The professor's core question: Why didn't you just use BERT? Because in mobile security, latency is everything. BERT takes 300 milliseconds on a costly GPU. Our hybrid pipeline combines 18 domain heuristics with pruned n-grams to hit 95.1% accuracy and 0.9858 ROC-AUC in 0.08 milliseconds on a standard CPU. We engineered for production reality, not notebook vanity."
-      </div>
-    </div>
-
-    <!-- SLIDE 5: EXPERIMENTS & RESULTS -->
+    <!-- SLIDE 5: WHY HYBRID BEATS HEAVY LLMS -->
     <div class="slide" id="slide-5">
-      <span class="tag">Model Governance</span>
-      <h1>MLflow <span>Experiment Progression</span>.</h1>
-      <p class="subtitle">Systematic iteration across 3 candidate architectures evaluated on 7,253 held-out test messages.</p>
+      <span class="tag">Engineering Defense</span>
+      <h1>Why Hybrid <span>Beats Heavy LLMs</span>.</h1>
+      <p class="subtitle">Why we chose 18 cyber threat heuristics + TF-IDF instead of a 100M parameter BERT.</p>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="metric-label">Experiment 1 (Baseline)</div>
-          <h3 style="margin-top:0.5rem;">Vanilla Logistic Regression</h3>
-          <p>Accuracy: 91.2%<br>ROC-AUC: 0.961<br>Misses callback lures & shortened links.</p>
+      <div class="compare-container">
+        <div class="compare-box compare-bad">
+          <h3 style="color:var(--danger);">🐢 Heavy LLM (BERT / DeBERTa)</h3>
+          <ul class="pill-list">
+            <li><span>⏱️</span> <strong>300 ms</strong> latency per message</li>
+            <li><span>💸</span> Requires costly dedicated cloud GPUs</li>
+            <li><span>❓</span> Opaque black box (no token-level explainability)</li>
+            <li><span>🔒</span> Privacy risk sending private SMS to third-party APIs</li>
+          </ul>
         </div>
-        <div class="card">
-          <div class="metric-label">Experiment 2 (Tree-based)</div>
-          <h3 style="margin-top:0.5rem;">Heuristic LightGBM</h3>
-          <p>Accuracy: 93.8%<br>ROC-AUC: 0.974<br>Higher inference latency (1.4 ms).</p>
-        </div>
-        <div class="card" style="border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow);">
-          <div class="metric-label" style="color:var(--accent);">Champion Model (Registered)</div>
-          <h3 style="margin-top:0.5rem; color:var(--accent);">Hybrid Calibrated SGD</h3>
-          <p><strong>Accuracy: 95.11%</strong><br><strong>Precision: 91.96%</strong><br><strong>ROC-AUC: 0.9858</strong><br><strong>Latency: 0.08 ms</strong></p>
+
+        <div class="compare-box compare-good">
+          <h3 style="color:var(--accent);">⚡ ScamShield Hybrid Architecture</h3>
+          <ul class="pill-list">
+            <li><span>🚀</span> <strong>0.08 ms</strong> inference speed on standard CPU</li>
+            <li><span>💰</span> <strong>$0 GPU overhead</strong> (runs on free-tier containers)</li>
+            <li><span>🔍</span> 100% token-level heuristic explainability</li>
+            <li><span>🏆</span> <strong>95.1% Accuracy &bull; 91.96% Precision &bull; 0.9858 ROC-AUC</strong></li>
+          </ul>
         </div>
       </div>
 
       <div class="speaker-notes">
-        <strong>Speaker Script (4:15 - 5:00)</strong>
-        "We didn't stop at one model. We tracked three distinct architectures in MLflow. The baseline linear model missed obfuscated URLs. Tree-based LightGBM improved accuracy but increased latency. Our registered Champion model — a hybrid calibrated pipeline — achieved our highest precision of 91.96% with near-zero latency, minimizing false alarms for users."
+        <strong>Speaker Script (3:45 – 4:45)</strong>
+        "Why didn't we just use BERT? Because in mobile security, latency and cost kill user adoption. BERT takes 300ms and requires an expensive GPU server. Our hybrid pipeline combines 18 domain heuristics—Shannon entropy, URL shorteners, currency syntax, callback telephone patterns—fused with pruned n-grams. The result is 95.1% accuracy, 91.9% precision, and a blistering 0.08 millisecond inference speed on a standard CPU."
       </div>
     </div>
 
-    <!-- SLIDE 6: MLOPS PIPELINE -->
+    <!-- SLIDE 6: PRODUCTION MLOPS -->
     <div class="slide" id="slide-6">
-      <span class="tag">Production Infrastructure</span>
-      <h1>Enterprise-Grade <span>MLOps Delivery</span>.</h1>
-      <p class="subtitle">From raw data versioning to automated cloud deployment.</p>
+      <span class="tag">Production Engineering</span>
+      <h1>Hardened <span>MLOps Delivery</span>.</h1>
+      <p class="subtitle">Reproducible, automated, and cloud-ready from day one.</p>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3>📦 DVC Pipeline Reproducibility</h3>
-          <p>Multi-stage DAG (<code>prepare_data</code> &rarr; <code>train_and_evaluate</code>) tracking 36,261 messages across 4 raw datasets. Guaranteed zero train-test leakage.</p>
+      <div class="grid-4">
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📦</div>
+          <h3>DVC Pipeline</h3>
+          <p>36,261 messages versioned. 2-stage DAG locked with zero data leakage.</p>
         </div>
-        <div class="card">
-          <h3>⚡ Automated CI/CD & Docker Hub</h3>
-          <p>GitHub Actions triggers on every git push: runs 13 unit tests, builds a multi-stage Docker container, and auto-pushes to Docker Hub (<code>bhagyashreebhagat/scamshield-ai:latest</code>).</p>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📊</div>
+          <h3>MLflow Tracking</h3>
+          <p>Tracked 3 distinct architectures. Registered champion model v1.0.0.</p>
         </div>
-        <div class="card">
-          <h3>☁️ Cloud Deployment</h3>
-          <p>Render Blueprint (<code>render.yaml</code>) and AWS EC2 user-data script for 1-click cloud launch. Accessible publicly via encrypted live URL.</p>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🐳</div>
+          <h3>Docker Hub CI/CD</h3>
+          <p>GitHub Actions runs 13 unit tests & auto-publishes container on push.</p>
         </div>
-        <div class="card">
-          <h3>🛡️ Robustness & Safety</h3>
-          <p>13 automated unit & integration tests covering edge cases (empty strings, extreme entropy, URL parsing, Pydantic validation errors).</p>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">☁️</div>
+          <h3>Cloud Ready</h3>
+          <p>Render Blueprint & EC2 user-data script for 1-click cloud launch.</p>
         </div>
       </div>
 
       <div class="speaker-notes">
-        <strong>Speaker Script (5:00 - 5:45)</strong>
-        "Behind the model sits production-grade MLOps. DVC versions our dataset and pipeline stages. GitHub Actions executes our 13 unit tests and automatically publishes the container to Docker Hub on every commit. And with Render blueprints and EC2 bootstrap scripts, the application runs reachable in the cloud with zero manual drift."
+        <strong>Speaker Script (4:45 – 5:30)</strong>
+        "Behind this model is enterprise-grade MLOps. Data and pipeline stages are versioned in DVC. Experiments and model metrics are tracked in MLflow. And every commit to GitHub triggers our CI/CD workflow to run 13 automated tests, build a multi-process Docker container, and push directly to Docker Hub. Anyone can run our system anywhere with a single docker run command."
       </div>
     </div>
 
-    <!-- SLIDE 7: CONCLUSION & SUMMARY -->
+    <!-- SLIDE 7: CONCLUSION -->
     <div class="slide" id="slide-7">
-      <span class="tag">Vision & Wrap-up</span>
-      <h1>From Panic to <span>Safety in 0.08ms</span>.</h1>
-      <p class="subtitle">ScamShield AI proves that thoughtful feature engineering beats brute-force compute.</p>
+      <span class="tag">The Vision</span>
+      <h1>Protection <span>Before The Click</span>.</h1>
+      <p class="subtitle">Turning a moment of manufactured panic into informed digital defense.</p>
 
-      <div class="grid-3" style="margin: 2rem 0;">
-        <div class="card" style="text-align:center;">
-          <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔒</div>
-          <h3>Protection</h3>
-          <p>Halting smishing and account takeover attempts before victims click or dial.</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:2.5rem; margin-bottom:0.5rem;">⚙️</div>
-          <h3>Engineering</h3>
-          <p>FastAPI, Streamlit, MLflow, DVC, Docker CI/CD — built end-to-end.</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:2.5rem; margin-bottom:0.5rem;">💡</div>
-          <h3>Takeaway</h3>
-          <p>Domain threat heuristics give models the reasoning that pure word counts miss.</p>
-        </div>
+      <div class="card" style="text-align: center; padding: 3rem 2rem; margin: 1.5rem 0;">
+        <div class="metric-value" style="font-size: 3.5rem; margin-bottom: 1rem;">0.08 ms</div>
+        <h3 style="justify-content: center; font-size: 1.4rem; margin-bottom: 1rem;">From Panic to Safety in Under a Millisecond.</h3>
+        <p style="max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
+          ScamShield AI proves that targeted cybersecurity feature engineering beats brute-force compute.
+        </p>
       </div>
 
       <div class="speaker-notes">
-        <strong>Closing Script (5:45 - 6:15)</strong>
-        "To summarize: ScamShield AI turns a moment of vulnerability into informed defense. By combining cybersecurity domain heuristics with production MLOps, we built an accurate, explainable, and lightning-fast guardian. Thank you, and I look forward to your questions!"
+        <strong>Speaker Script (5:30 – 6:00)</strong>
+        "To conclude: ScamShield AI turns a moment of vulnerability into informed defense. By anchoring our system in real-world smishing attacks, prioritizing explainability over black-box complexity, and enforcing end-to-end MLOps rigor, we built a lightning-fast guardian. Thank you, and I welcome your questions!"
       </div>
     </div>
   </main>
@@ -746,7 +686,7 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal for Full-Screen Screenshots -->
+  <!-- Lightbox Modal -->
   <div id="imageModal" class="modal" onclick="closeModal()">
     <span class="modal-close">&times;</span>
     <img class="modal-img" id="modalImg" alt="Enlarged Evidence">
