@@ -46,7 +46,7 @@
 
     /* Fixed Header */
     header {
-      padding: 0.85rem 3rem;
+      padding: 0.75rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -65,7 +65,7 @@
     .brand-title {
       font-family: var(--font-mono);
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1rem;
       letter-spacing: -0.02em;
       color: #fff;
       display: flex;
@@ -74,7 +74,7 @@
     }
 
     .brand-tag {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       background: rgba(16, 185, 129, 0.15);
       color: var(--accent-green);
       padding: 0.15rem 0.5rem;
@@ -85,19 +85,55 @@
     }
 
     .student-badge {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       border-left: 1px solid var(--card-border);
       padding-left: 1.25rem;
       font-family: var(--font-mono);
     }
 
+    .header-links {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .live-cloud-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-decoration: none;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+
+    .live-cloud-pill.streamlit {
+      background: rgba(239, 68, 68, 0.12);
+      color: #FCA5A5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .live-cloud-pill.render {
+      background: rgba(6, 182, 212, 0.12);
+      color: #67E8F9;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .live-cloud-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
     .slide-counter {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--accent-cyan);
       background: rgba(6, 182, 212, 0.1);
-      padding: 0.3rem 0.8rem;
+      padding: 0.25rem 0.75rem;
       border-radius: 20px;
       border: 1px solid rgba(6, 182, 212, 0.25);
     }
@@ -108,7 +144,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem 3rem;
+      padding: 1.25rem 2.5rem;
       position: relative;
     }
 
@@ -116,10 +152,10 @@
       display: none;
       width: 100%;
       max-width: 1360px;
-      height: calc(100vh - 145px);
+      height: calc(100vh - 135px);
       flex-direction: column;
       justify-content: center;
-      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       overflow-y: auto;
       padding-right: 0.5rem;
     }
@@ -129,32 +165,51 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     /* Typography */
     .slide-tag {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent-cyan);
       background: rgba(6, 182, 212, 0.1);
-      padding: 0.25rem 0.75rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 50px;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       border: 1px solid rgba(6, 182, 212, 0.3);
       align-self: flex-start;
       display: inline-block;
     }
 
+    .phase-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .p-foundations { background: #0284C7; }
+    .p-prep { background: #1D4ED8; }
+    .p-creation { background: #B45309; }
+    .p-selection { background: #6D28D9; }
+    .p-reduction { background: #9D174D; }
+
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.45rem;
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     h1 span {
@@ -164,66 +219,98 @@
     }
 
     .subtitle {
-      font-size: 1.08rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
-      line-height: 1.45;
-      max-width: 950px;
-      margin-bottom: 1.25rem;
+      line-height: 1.4;
+      max-width: 1000px;
+      margin-bottom: 1rem;
     }
 
     /* Cards & Grids */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-top: 0.5rem;
+      gap: 1.1rem;
+      margin-top: 0.4rem;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 0.5rem;
+      gap: 0.9rem;
+      margin-top: 0.4rem;
     }
 
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.85rem;
-      margin-top: 0.5rem;
+      gap: 0.8rem;
+      margin-top: 0.4rem;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 1.25rem;
+      border-radius: 12px;
+      padding: 1.15rem;
       backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
       position: relative;
     }
 
     .card h3 {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
     .card p {
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       line-height: 1.45;
     }
 
-    /* Timeline Stepper (Slide 2) */
+    /* Explanation Unit */
+    .fe-concept-item {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .fe-concept-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+
+    .fe-concept-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .fe-concept-impl {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    /* Timeline Stepper */
     .timeline-wrap {
       display: flex;
       justify-content: space-between;
       position: relative;
-      margin: 1.25rem 0 1.5rem 0;
+      margin: 1rem 0 1.25rem 0;
     }
 
     .timeline-wrap::before {
@@ -243,13 +330,13 @@
       z-index: 2;
       background: #0B1120;
       border: 1px solid var(--card-border);
-      padding: 0.5rem 0.8rem;
-      border-radius: 10px;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
       text-align: center;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      min-width: 130px;
+      min-width: 125px;
     }
 
     .timeline-step.danger {
@@ -258,35 +345,35 @@
     }
 
     .timeline-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       background: var(--accent-cyan);
       border-radius: 50%;
-      margin: 0 auto 0.35rem auto;
-      box-shadow: 0 0 10px var(--accent-cyan);
+      margin: 0 auto 0.3rem auto;
+      box-shadow: 0 0 8px var(--accent-cyan);
     }
 
     .timeline-step.danger .timeline-dot {
       background: var(--danger);
-      box-shadow: 0 0 10px var(--danger);
+      box-shadow: 0 0 8px var(--danger);
     }
 
     /* Redacted Evidence Cards */
     .evidence-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin: 0.75rem 0;
+      gap: 1.15rem;
+      margin: 0.65rem 0;
     }
 
     .evidence-box {
       background: #030712;
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 0.85rem;
+      border-radius: 12px;
+      padding: 0.75rem;
       text-align: center;
       position: relative;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -298,11 +385,11 @@
 
     .evidence-header {
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       color: var(--accent-purple);
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -311,8 +398,8 @@
     .redact-pill {
       background: rgba(239, 68, 68, 0.15);
       color: var(--danger);
-      font-size: 0.65rem;
-      padding: 0.1rem 0.4rem;
+      font-size: 0.62rem;
+      padding: 0.1rem 0.35rem;
       border-radius: 4px;
       font-weight: 700;
     }
@@ -321,7 +408,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      height: 290px;
+      height: 275px;
       background: #000;
     }
 
@@ -331,7 +418,6 @@
       object-fit: contain;
     }
 
-    /* Privacy Redaction Bar */
     .privacy-bar {
       position: absolute;
       background: rgba(15, 23, 42, 0.95);
@@ -348,13 +434,13 @@
     }
 
     .evidence-sub {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--text);
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
     }
 
-    /* Lightbox Modal */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -394,77 +480,69 @@
     .modal-caption {
       margin-top: 1rem;
       font-family: var(--font-mono);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
-    /* Factual Callout Box */
+    /* Fact Box */
     .fact-box {
       background: rgba(239, 68, 68, 0.06);
       border-left: 4px solid var(--danger);
-      padding: 0.85rem 1.15rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      line-height: 1.45;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      line-height: 1.4;
       color: #FCA5A5;
-      margin-top: 0.75rem;
+      margin-top: 0.65rem;
     }
 
-    .fact-box strong {
-      color: #fff;
-    }
+    .fact-box strong { color: #fff; }
 
-    /* Feature Category Cards (Slide 8) */
+    /* Feature Category Cards */
     .feature-card {
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.15rem;
+      border-radius: 10px;
+      padding: 0.95rem;
     }
 
     .feature-card-title {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--accent-cyan);
       text-transform: uppercase;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.5rem;
       display: flex;
       justify-content: space-between;
     }
 
-    .feature-list {
-      list-style: none;
-    }
-
+    .feature-list { list-style: none; }
     .feature-list li {
-      font-size: 0.8rem;
-      padding: 0.3rem 0;
+      font-size: 0.78rem;
+      padding: 0.28rem 0;
       color: var(--text-muted);
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid rgba(255,255,255,0.04);
     }
-
-    .feature-list li:last-child {
-      border-bottom: none;
-    }
+    .feature-list li:last-child { border-bottom: none; }
 
     .candidate-badge {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       background: rgba(245, 158, 11, 0.15);
       color: var(--warning);
-      padding: 0.1rem 0.4rem;
+      padding: 0.1rem 0.35rem;
       border-radius: 4px;
       font-family: var(--font-mono);
     }
 
     .implemented-badge {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       background: rgba(16, 185, 129, 0.15);
       color: var(--accent-green);
-      padding: 0.1rem 0.4rem;
+      padding: 0.1rem 0.35rem;
       border-radius: 4px;
       font-family: var(--font-mono);
     }
@@ -474,139 +552,139 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.4rem;
+      gap: 0.35rem;
       background: #020617;
-      padding: 1rem 1.25rem;
-      border-radius: 12px;
+      padding: 0.85rem 1.15rem;
+      border-radius: 10px;
       border: 1px solid var(--card-border);
-      margin: 1rem 0;
+      margin: 0.75rem 0;
       overflow-x: auto;
     }
 
     .dag-node {
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--card-border);
-      padding: 0.45rem 0.7rem;
-      border-radius: 8px;
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-align: center;
-      min-width: 85px;
+      min-width: 80px;
     }
 
     .dag-node strong {
       display: block;
       color: var(--accent-cyan);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
     }
 
     .dag-arrow {
       color: var(--text-muted);
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* Product UI Mockup (Slide 5) */
+    /* Product UI Mockup */
     .ui-mockup {
       background: #020617;
       border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 16px;
-      padding: 1.25rem;
+      border-radius: 14px;
+      padding: 1.15rem;
       box-shadow: 0 0 35px rgba(139, 92, 246, 0.15);
     }
 
     .ui-input-box {
       background: #0B1120;
       border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 0.85rem;
+      border-radius: 8px;
+      padding: 0.75rem;
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: #CBD5E1;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .ui-result-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.85rem;
+      gap: 0.75rem;
     }
 
     .ui-alert-badge {
       background: rgba(239, 68, 68, 0.15);
       border: 1px solid var(--danger);
       color: #F87171;
-      padding: 0.5rem 0.85rem;
-      border-radius: 8px;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    /* Table Styling (Slides 10 & 15) */
+    /* Table Styling */
     .metric-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.85rem;
-      margin-top: 0.65rem;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
     }
 
     .metric-table th {
       background: rgba(255,255,255,0.04);
-      padding: 0.65rem 0.85rem;
+      padding: 0.6rem 0.8rem;
       color: var(--accent-cyan);
       text-align: left;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       border-bottom: 1px solid var(--card-border);
     }
 
     .metric-table td {
-      padding: 0.65rem 0.85rem;
+      padding: 0.6rem 0.8rem;
       border-bottom: 1px solid rgba(255,255,255,0.05);
       color: var(--text);
     }
 
-    /* Top KPI Cards (Slide 10) */
+    /* Top KPI Cards */
     .kpi-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
     }
 
     .kpi-card {
       background: rgba(15, 23, 42, 0.85);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1rem;
+      border-radius: 10px;
+      padding: 0.85rem;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .kpi-title {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
       font-weight: 600;
     }
 
     .kpi-val {
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 800;
       font-family: var(--font-mono);
       color: #fff;
       line-height: 1.1;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .kpi-badge {
       display: inline-block;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-family: var(--font-mono);
-      padding: 0.15rem 0.5rem;
+      padding: 0.12rem 0.45rem;
       border-radius: 20px;
       background: rgba(16, 185, 129, 0.15);
       color: var(--accent-green);
@@ -618,11 +696,11 @@
     .code-box {
       background: #020617;
       border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
       font-family: var(--font-mono);
-      font-size: 0.76rem;
-      line-height: 1.5;
+      font-size: 0.74rem;
+      line-height: 1.45;
       color: #E2E8F0;
       overflow-x: auto;
     }
@@ -633,9 +711,9 @@
     .c-num { color: #F59E0B; }
     .c-cm { color: #64748B; font-style: italic; }
 
-    /* Bottom Control Bar */
+    /* Footer */
     footer {
-      padding: 0.75rem 3rem;
+      padding: 0.65rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -650,35 +728,35 @@
       height: 4px;
       background: rgba(255,255,255,0.1);
       border-radius: 2px;
-      margin: 0 2rem;
+      margin: 0 1.5rem;
       overflow: hidden;
     }
 
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
-      width: 6.67%;
+      width: 5.88%;
       transition: width 0.3s ease;
     }
 
     .nav-btn-wrap {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
     button {
       background: rgba(255,255,255,0.06);
       color: var(--text);
       border: 1px solid var(--card-border);
-      padding: 0.45rem 1.1rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     button:hover:not(:disabled) {
@@ -708,13 +786,22 @@
     <div class="brand-wrap">
       <div class="brand-title">
         <span>🛡️ SCAMSHIELD AI</span>
-        <span class="brand-tag">PRODUCT &amp; ARCHITECTURE DECK</span>
+        <span class="brand-tag">FEATURE ENGG &amp; MLOPS</span>
       </div>
       <div class="student-badge">
         Bhagyashree Bhagat • Roll No. 34 • B.Tech CSE
       </div>
     </div>
-    <div class="slide-counter" id="slideNumber">Slide 1 of 15</div>
+
+    <div class="header-links">
+      <a href="https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/" target="_blank" class="live-cloud-pill streamlit">
+        <span>⚡ Streamlit Cloud Live</span>
+      </a>
+      <a href="https://scamshield-ai-r1o5.onrender.com/" target="_blank" class="live-cloud-pill render">
+        <span>🌐 Render Live API</span>
+      </a>
+      <div class="slide-counter" id="slideNumber">Slide 1 of 17</div>
+    </div>
   </header>
 
   <main>
@@ -726,7 +813,7 @@
         AI-Powered Scam Communication Detection
       </p>
 
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; max-width: 700px; margin: 1rem 0;">
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; max-width: 720px; margin: 1rem 0;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
           <div>
             <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Presenter</div>
@@ -919,24 +1006,24 @@
 
       <div class="grid-2" style="align-items: center;">
         <div>
-          <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.6rem 1rem; border-radius: 8px;">
+          <div style="display: flex; flex-direction: column; gap: 0.55rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.55rem 0.9rem; border-radius: 8px;">
               <span style="font-family: var(--font-mono); color: var(--accent-purple); font-weight: 700;">01</span>
               <span>Suspicious Message Ingestion</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.6rem 1rem; border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.55rem 0.9rem; border-radius: 8px;">
               <span style="font-family: var(--font-mono); color: var(--accent-purple); font-weight: 700;">02</span>
               <span>Domain Threat Feature Extraction (18 Heuristics)</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.6rem 1rem; border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.55rem 0.9rem; border-radius: 8px;">
               <span style="font-family: var(--font-mono); color: var(--accent-purple); font-weight: 700;">03</span>
               <span>Calibrated Risk Probability Assessment (0–100)</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.6rem 1rem; border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.55rem 0.9rem; border-radius: 8px;">
               <span style="font-family: var(--font-mono); color: var(--accent-purple); font-weight: 700;">04</span>
               <span>Explainable Trigger Token Extraction</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.6rem 1rem; border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); padding: 0.55rem 0.9rem; border-radius: 8px;">
               <span style="font-family: var(--font-mono); color: var(--accent-purple); font-weight: 700;">05</span>
               <span>Actionable Consumer Safety Directive</span>
             </div>
@@ -945,32 +1032,32 @@
 
         <!-- Product UI Mockup -->
         <div class="ui-mockup">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">SCAMSHIELD RUNTIME v1.0</span>
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-green);">● FASTAPI READY</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">SCAMSHIELD CLOUD RUNTIME</span>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-green);">● LIVE DEPLOYED</span>
           </div>
 
           <div class="ui-input-box">
             “Hlo mam. By mistake send 3000. Please return mam 2000 to my PhonePe QR code immediately.”
           </div>
 
-          <div class="ui-alert-badge" style="margin-bottom: 0.75rem;">
+          <div class="ui-alert-badge" style="margin-bottom: 0.65rem;">
             <span>🚨 THREAT DETECTED: HIGH RISK</span>
-            <span style="font-family: var(--font-mono); font-size: 1.1rem;">92.3% RISK</span>
+            <span style="font-family: var(--font-mono); font-size: 1.05rem;">92.3% RISK</span>
           </div>
 
           <div class="ui-result-grid">
-            <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px; font-size: 0.8rem;">
+            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem; border-radius: 6px; font-size: 0.78rem;">
               <span style="color: var(--text-muted);">Category:</span>
               <strong style="display: block; color: var(--accent-cyan);">Payment / Refund Lure</strong>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px; font-size: 0.8rem;">
+            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem; border-radius: 6px; font-size: 0.78rem;">
               <span style="color: var(--text-muted);">Key Risk Signals:</span>
               <strong style="display: block; color: var(--danger);">Urgency • Monetary Regex</strong>
             </div>
           </div>
 
-          <div style="margin-top: 0.75rem; background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent-green); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.75rem; color: #A7F3D0;">
+          <div style="margin-top: 0.65rem; background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent-green); padding: 0.45rem 0.65rem; border-radius: 4px; font-size: 0.72rem; color: #A7F3D0;">
             <strong>Safety Directive:</strong> Verify bank statement independently before executing any return.
           </div>
         </div>
@@ -985,19 +1072,19 @@
 
       <div class="grid-3">
         <div class="card" style="border-top: 3px solid var(--accent-cyan);">
-          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">01 — DETECT</div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); margin-bottom: 0.4rem;">01 — DETECT</div>
           <h3>Is This Suspicious?</h3>
           <p>Calculates a calibrated 0–100 danger score so consumers know the exact confidence of the threat rather than an opaque binary guess.</p>
         </div>
 
         <div class="card" style="border-top: 3px solid var(--accent-purple);">
-          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-purple); margin-bottom: 0.5rem;">02 — EXPLAIN</div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-purple); margin-bottom: 0.4rem;">02 — EXPLAIN</div>
           <h3>Why Was It Flagged?</h3>
           <p>Extracts specific deception tokens: shortened URL redirects, private phone callback numbers, Shannon character entropy, and coercion language.</p>
         </div>
 
         <div class="card" style="border-top: 3px solid var(--danger);">
-          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--danger); margin-bottom: 0.5rem;">03 — CLASSIFY</div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--danger); margin-bottom: 0.4rem;">03 — CLASSIFY</div>
           <h3>What Scam Type Is It?</h3>
           <p>Maps threats to verified taxonomy: Payment &amp; Refund Lures, Fake Orders, Bank KYC Blocks, Utility Disconnections, and Delivery Traps.</p>
         </div>
@@ -1015,53 +1102,53 @@
 
     <!-- ================= SLIDE 7 ================= -->
     <div class="slide" id="slide-7">
-      <span class="slide-tag">Data Strategy</span>
+      <span class="slide-tag">Data Strategy &amp; Ingestion</span>
       <h1>Disciplined Three-Tier Corpus &amp; <span>Zero-Leakage Split</span></h1>
-      <p class="subtitle">Combining large-scale language representation, targeted attack vectors, and strict validation partitioning.</p>
+      <p class="subtitle">Multi-source ingestion pipeline separating base vocabulary, targeted threat vectors, and held-out validation.</p>
 
-      <div class="grid-3" style="margin-bottom: 1.25rem;">
+      <div class="grid-3" style="margin-bottom: 1rem;">
         <div class="card" style="text-align: center; border-color: rgba(139, 92, 246, 0.3);">
-          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-purple);">268K+</div>
-          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.3rem;">Corpus Messages</div>
-          <p style="font-size: 0.82rem;">Primary vocabulary and diverse benign/malicious language baseline.</p>
-          <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-purple);">MAIN TRAINING CORPUS</div>
+          <div style="font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-purple);">268K+</div>
+          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.25rem;">Corpus Messages</div>
+          <p style="font-size: 0.78rem;"><code>dataset_v3_for_deberta.csv</code>: Primary vocabulary and benign language baseline.</p>
+          <div style="margin-top: 0.45rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-purple);">MAIN TRAINING CORPUS</div>
         </div>
 
         <div class="card" style="text-align: center; border-color: rgba(6, 182, 212, 0.3);">
-          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-cyan);">10K</div>
-          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.3rem;">Targeted Intent</div>
-          <p style="font-size: 0.82rem;">Phishing links, OTP harvesting, and fake delivery notifications.</p>
-          <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-cyan);">ADDITIONAL THREAT ANALYSIS</div>
+          <div style="font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-cyan);">10K</div>
+          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.25rem;">Targeted Intent</div>
+          <p style="font-size: 0.78rem;"><code>sample_10k.csv</code> &amp; Financial Datasets: Phishing links, OTP harvesting, banking alerts.</p>
+          <div style="margin-top: 0.45rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-cyan);">ADDITIONAL THREAT ANALYSIS</div>
         </div>
 
         <div class="card" style="text-align: center; border-color: rgba(16, 185, 129, 0.3);">
-          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-green);">2.2K</div>
-          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.3rem;">Regional Validation</div>
-          <p style="font-size: 0.82rem;">Indian telecom, UPI, electricity power cutoff, and banking scams.</p>
-          <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-green);">HELD-OUT EXTERNAL BENCHMARK</div>
+          <div style="font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-green);">2.2K</div>
+          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.25rem;">Regional Validation</div>
+          <p style="font-size: 0.78rem;"><code>scam_hum_india.csv</code>: Indian telecom, UPI overpayment, and utility power cutoff scams.</p>
+          <div style="margin-top: 0.45rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-green);">HELD-OUT EXTERNAL BENCHMARK</div>
         </div>
       </div>
 
       <!-- Split Partitioning Card -->
-      <div class="card" style="padding: 1rem 1.25rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-          <h3 style="font-size: 0.95rem; color: var(--accent-cyan);">Rigorous Stratified Train/Test Partitioning</h3>
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-green);">✓ Zero Data Leakage Verified</span>
+      <div class="card" style="padding: 0.9rem 1.15rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+          <h3 style="font-size: 0.92rem; color: var(--accent-cyan);">The Cardinal Engineering Rule: Split Before Transformation</h3>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-green);">✓ Zero Data Leakage Verified</span>
         </div>
-        <div class="grid-3" style="margin-top: 0.5rem;">
-          <div style="background: rgba(255,255,255,0.03); padding: 0.65rem; border-radius: 6px;">
-            <div style="color:var(--text-muted); font-size: 0.75rem;">Train Split (80%)</div>
-            <div style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: #fff;">29,008 Samples</div>
+        <div class="grid-3" style="margin-top: 0.4rem;">
+          <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px;">
+            <div style="color:var(--text-muted); font-size: 0.72rem;">Train Split (80%)</div>
+            <div style="font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: #fff;">29,008 Samples</div>
             <div style="font-size: 0.7rem; color: var(--accent-purple);">Vectorizers &amp; Scalers fit ONLY on Train</div>
           </div>
-          <div style="background: rgba(255,255,255,0.03); padding: 0.65rem; border-radius: 6px;">
-            <div style="color:var(--text-muted); font-size: 0.75rem;">Test Split (20%)</div>
-            <div style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: #fff;">7,253 Samples</div>
+          <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px;">
+            <div style="color:var(--text-muted); font-size: 0.72rem;">Test Split (20%)</div>
+            <div style="font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: #fff;">7,253 Samples</div>
             <div style="font-size: 0.7rem; color: var(--accent-cyan);">Stratified class proportions preserved</div>
           </div>
-          <div style="background: rgba(255,255,255,0.03); padding: 0.65rem; border-radius: 6px;">
-            <div style="color:var(--text-muted); font-size: 0.75rem;">External Benchmark</div>
-            <div style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: #fff;">2,272 Messages</div>
+          <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px;">
+            <div style="color:var(--text-muted); font-size: 0.72rem;">External Benchmark</div>
+            <div style="font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: #fff;">2,272 Messages</div>
             <div style="font-size: 0.7rem; color: var(--accent-green);">Completely unseen Indian regional dataset</div>
           </div>
         </div>
@@ -1070,17 +1157,117 @@
 
     <!-- ================= SLIDE 8 ================= -->
     <div class="slide" id="slide-8">
-      <span class="slide-tag">Feature Engineering Taxonomy</span>
-      <h1>Turning Raw Messages <span>Into 18+ Mathematical Signals</span></h1>
-      <p class="subtitle">Feature engineering transforms unstructured deceptive text into measurable, domain-grounded mathematical features.</p>
+      <div class="phase-badge p-foundations">Phase 1: Foundations</div>
+      <h1>Feature Engineering <span>Foundations &amp; Lifecycle</span></h1>
+      <p class="subtitle">Features are the model's only vocabulary. How ScamShield AI structures the end-to-end ML lifecycle.</p>
 
-      <div style="background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 0.65rem 1.15rem; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.85rem; display: flex; justify-content: space-between; align-items: center;">
-        <span>RAW INPUT: “Hlo mam. By mistake send 3000. Please return mam 2000 to PhonePe immediately.”</span>
-        <span style="color: var(--accent-cyan); font-weight: 700;">&rarr; EXTRACTS 18 HEURISTIC DIMENSIONS + 8,000 N-GRAMS</span>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent-cyan); font-size: 0.95rem;">ML Lifecycle &amp; Bias-Variance Tradeoff</h3>
+          
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>ML Lifecycle Architecture</span><span style="color:var(--accent-purple); font-family:var(--font-mono);">src/train_mlflow.py</span></div>
+            <div class="fe-concept-desc">Data &rarr; Domain Feature Extraction &rarr; Scaled Fusion &rarr; Calibrated Classification &rarr; REST Serving &rarr; Consumer Feedback.</div>
+            <span class="fe-concept-impl">Closed-loop evaluation tracked in MLflow experiments.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Bias-Variance Control</span><span style="color:var(--warning); font-family:var(--font-mono);">Regularization C=2.5</span></div>
+            <div class="fe-concept-desc">Too few features underfits subtle social engineering cues; unconstrained 100k+ n-grams overfit on noisy typos.</div>
+            <span class="fe-concept-impl">ScamShield bounds variance using max_features=8000 + L2 penalty.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Raw vs. Engineered Features</span><span style="color:var(--accent-green); font-family:var(--font-mono);">Derived Signals</span></div>
+            <div class="fe-concept-desc">Raw text alone lacks context. We transform unstructured strings into explicit ratios: digit density, uppercase pressure, and Shannon entropy.</div>
+            <span class="fe-concept-impl">Raw: "CALL 98765..." &rarr; Engineered: has_phone=1, uppercase_ratio=0.85</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-purple); font-size: 0.95rem;">Pipeline Automation &amp; Feature Types</h3>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Pipeline Automation (The Single Recipe)</span><span style="color:var(--accent-cyan); font-family:var(--font-mono);">sklearn.pipeline.Pipeline</span></div>
+            <div class="fe-concept-desc">One encapsulated Pipeline object reused across training, offline evaluation, FastAPI microservice, and Streamlit frontend.</div>
+            <span class="fe-concept-impl">Guarantees zero inference skew between training and production.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Feature Taxonomy Sorting</span><span style="color:var(--accent-green); font-family:var(--font-mono);">18+ Dimensions</span></div>
+            <div class="fe-concept-desc">We sort features into 4 structured bins: Numerical (length, entropy), Binary (has_url, has_phone), Categorical (threat intent), and Lexical (n-grams).</div>
+            <span class="fe-concept-impl">features.py: FEATURE_NAMES defines clean dimensional schemas.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Hand-Engineered vs. Feature Learning</span><span style="color:var(--danger); font-family:var(--font-mono);">Why not CNN/BERT?</span></div>
+            <div class="fe-concept-desc">Deep learning learns features automatically but needs GPUs and 200ms+ latency. Explicit domain heuristics achieve 0.08ms CPU speed with full token explainability.</div>
+            <span class="fe-concept-impl">White-box rules guarantee transparency for consumer safety.</span>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="grid-4">
-        <!-- 1. Text Features -->
+    <!-- ================= SLIDE 9 ================= -->
+    <div class="slide" id="slide-9">
+      <div class="phase-badge p-prep">Phase 2: Cleaning &amp; Prep</div>
+      <h1>Data Cleaning, Scaling <span>&amp; Transformations</span></h1>
+      <p class="subtitle">StandardScaler z-scoring, sublinear logarithmic damping, and missing value defensive programming.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent-cyan); font-size: 0.95rem;">Scaling Techniques: StandardScaler</h3>
+          
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Z-Score Standardization</span><span style="color:var(--accent-green); font-family:var(--font-mono);">z = (x - &mu;) / &sigma;</span></div>
+            <div class="fe-concept-desc">Continuous domain heuristics (message length up to 500 characters, entropy 0–5) live on wildly different scales than binary flags (0 or 1).</div>
+            <span class="fe-concept-impl">features.py + StandardScaler() centers features at 0 with unit variance.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Why Scaling Matters for Distance/Gradient Models</span><span style="color:var(--accent-purple); font-family:var(--font-mono);">SGD / Logistic</span></div>
+            <div class="fe-concept-desc">Linear classifiers and gradient descent converge inefficiently if message length dominates smaller but vital signals like uppercase ratio.</div>
+            <span class="fe-concept-impl">Fitted strictly on X_train to prevent test scale leakage.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Missing Values &amp; Imputation Defense</span><span style="color:var(--warning); font-family:var(--font-mono);">MCAR / MAR Handling</span></div>
+            <div class="fe-concept-desc">Incoming SMS or chat inputs can be null, empty, or whitespace-only. Handled defensively with type-safe sanitization and neutral zero defaults.</div>
+            <span class="fe-concept-impl">clean_text = str(text) if pd.notna(text) else "" prevents crashes.</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-green); font-size: 0.95rem;">Mathematical Transformations &amp; Skew Correction</h3>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Sublinear TF Scaling (Logarithmic Damping)</span><span style="color:var(--accent-cyan); font-family:var(--font-mono);">sublinear_tf=True</span></div>
+            <div class="fe-concept-desc">Scammers repeat spam keywords 10 times to boost keyword counts. Sublinear term frequency replaces raw tf with 1 + log(tf).</div>
+            <span class="fe-concept-impl">A word occurring 20 times is only ~2.3x more influential, not 20x.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Skewness Correction via Character Ratios</span><span style="color:var(--accent-purple); font-family:var(--font-mono);">Normalized Dimensions</span></div>
+            <div class="fe-concept-desc">Raw digit count heavily skews on long messages. We engineer digit_ratio = digits / length, creating bounded, normal distributions.</div>
+            <span class="fe-concept-impl">Stabilizes linear coefficients and accelerates convergence.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Categorical Taxonomy Mapping</span><span style="color:var(--danger); font-family:var(--font-mono);">Category Dictionaries</span></div>
+            <div class="fe-concept-desc">7 distinct fraud archetypes mapped via verified keyword sets (Fake Order, KYC Block, OTP Harvesting, Delivery Trap, Power Cutoff).</div>
+            <span class="fe-concept-impl">features.py: identify_scam_category() provides instant taxonomy.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SLIDE 10 ================= -->
+    <div class="slide" id="slide-10">
+      <div class="phase-badge p-creation">Phase 3: Feature Creation</div>
+      <h1>Feature Creation: <span>18 Cyber-Threat Heuristics</span></h1>
+      <p class="subtitle">Extracting mathematical indicators of psychological coercion, financial lures, and structural obfuscation.</p>
+
+      <div class="grid-4" style="margin-bottom: 0.75rem;">
         <div class="feature-card">
           <div class="feature-card-title">TEXT METRICS</div>
           <ul class="feature-list">
@@ -1092,7 +1279,6 @@
           </ul>
         </div>
 
-        <!-- 2. Structural Features -->
         <div class="feature-card">
           <div class="feature-card-title">STRUCTURAL &amp; ENTROPY</div>
           <ul class="feature-list">
@@ -1104,7 +1290,6 @@
           </ul>
         </div>
 
-        <!-- 3. Communication Features -->
         <div class="feature-card">
           <div class="feature-card-title">COMMUNICATION HOOKS</div>
           <ul class="feature-list">
@@ -1116,7 +1301,6 @@
           </ul>
         </div>
 
-        <!-- 4. Scam Signals -->
         <div class="feature-card">
           <div class="feature-card-title">PSYCHOLOGICAL SIGNALS</div>
           <ul class="feature-list">
@@ -1128,19 +1312,91 @@
           </ul>
         </div>
       </div>
-    </div>
-
-    <!-- ================= SLIDE 9 ================= -->
-    <div class="slide" id="slide-9">
-      <span class="slide-tag">Feature Engineering Architecture</span>
-      <h1>The Engineering Engine <span>Inside features.py</span></h1>
-      <p class="subtitle">Scikit-Learn compliant TransformerMixin, precompiled high-speed regexes, and mathematical Shannon character entropy.</p>
 
       <div class="grid-2">
-        <!-- Left: Code & Architecture Details -->
+        <div class="card" style="padding: 0.85rem 1rem;">
+          <h3 style="font-size: 0.92rem; color: var(--accent-green); margin-bottom: 0.35rem;">
+            📐 Shannon Character Entropy: H(X) = - &sum; P(x) &middot; log<sub>2</sub> P(x)
+          </h3>
+          <p style="font-size: 0.78rem;">
+            <strong>Why it matters:</strong> Obfuscated malicious links (<code style="color:var(--accent-cyan);">bit.ly/x7Q9zP_1</code>) and hex strings exhibit abnormally high character entropy compared to standard dictionary English text, instantly signaling randomized URLs.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 0.85rem 1rem;">
+          <h3 style="font-size: 0.92rem; color: var(--accent-purple); margin-bottom: 0.35rem;">
+            ⏱️ Temporal &amp; Urgency Coercion Signals
+          </h3>
+          <p style="font-size: 0.78rem;">
+            <strong>Interaction Terms:</strong> Scammers couple temporal deadlines ("within 24 hours", "immediately") with monetary amounts ("₹3000"). Capturing both creates strong non-linear interaction signal separating marketing from extortion.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SLIDE 11 ================= -->
+    <div class="slide" id="slide-11">
+      <div class="phase-badge p-selection">Phase 4 &amp; 5: Selection &amp; Reduction</div>
+      <h1>Feature Selection &amp; <span>Dimensionality Defense</span></h1>
+      <p class="subtitle">Why sparse pruned representation beats dense PCA for real-time cyber-threat explainability.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent-cyan); font-size: 0.95rem;">Phase 4: Feature Selection Strategy</h3>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Filter Methods: Frequency Pruning</span><span style="color:var(--accent-green); font-family:var(--font-mono);">min_df=3, max_df=0.90</span></div>
+            <div class="fe-concept-desc">Removes rare typos appearing in &lt;3 documents (noise) and universal stopwords appearing in &gt;90% of documents.</div>
+            <span class="fe-concept-impl">Reduces 100,000+ raw n-grams to top 8,000 most informative tokens.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Embedded Regularization (L2 Penalty)</span><span style="color:var(--accent-purple); font-family:var(--font-mono);">params.yaml: C=2.5</span></div>
+            <div class="fe-concept-desc">Ridge regularization penalizes large feature weights, preventing single words from dominating while maintaining stability across correlated features.</div>
+            <span class="fe-concept-impl">Optimally balances TF-IDF signals with the 18 heuristic features.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Tree-Based Feature Importance (Run 2 Validation)</span><span style="color:var(--warning); font-family:var(--font-mono);">Gini Importance</span></div>
+            <div class="fe-concept-desc">Random Forest experiment validated that urgency keywords, Shannon entropy, and phone number matches rank as the top predictive structural features.</div>
+            <span class="fe-concept-impl">Confirms domain heuristics provide genuine predictive lift.</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-purple); font-size: 0.95rem;">Phase 5: Dimensionality Reduction Defense (Why Not PCA?)</h3>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>The Curse of Dimensionality in Text</span><span style="color:var(--danger); font-family:var(--font-mono);">High Sparsity Space</span></div>
+            <div class="fe-concept-desc">Text n-grams exist in 8,000+ dimensions, but 99.8% of values per row are zero. Sparse matrices require minimal RAM and allow instantaneous dot-product math.</div>
+            <span class="fe-concept-impl">scipy.sparse CSR matrices enable 0.08ms CPU inference.</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Projection (PCA) vs. Selection (Pruned TF-IDF)</span><span style="color:var(--accent-cyan); font-family:var(--font-mono);">Loss of Interpretability</span></div>
+            <div class="fe-concept-desc">Dense PCA projects text onto synthetic axes (PC1 = 0.34*wordA - 0.12*wordB). This completely destroys token-level attribution and explainability.</div>
+            <span class="fe-concept-impl">A consumer cannot be told "PC1 was 2.4"; they must see "₹3,000 was flagged".</span>
+          </div>
+
+          <div class="fe-concept-item">
+            <div class="fe-concept-title"><span>Computational Overhead Defense</span><span style="color:var(--accent-green); font-family:var(--font-mono);">&lt; 0.1ms vs 15ms</span></div>
+            <div class="fe-concept-desc">Fitting dense PCA on 29,000 samples exhausts CPU cache and adds 15ms projection latency during serving. Sparse linear hyperplanes evaluate in 0.08ms.</div>
+            <span class="fe-concept-impl">Champion hybrid pipeline chosen over PCA projection.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SLIDE 12 ================= -->
+    <div class="slide" id="slide-12">
+      <span class="slide-tag">Code Architecture</span>
+      <h1>Inside <code>features.py</code> &amp; <span>Serialization Resilience</span></h1>
+      <p class="subtitle">Scikit-Learn compliant TransformerMixin, precompiled high-speed regexes, and Joblib unpickling fix.</p>
+
+      <div class="grid-2">
         <div>
-          <div class="card" style="margin-bottom: 0.85rem; padding: 1rem;">
-            <h3 style="font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 0.4rem;">
+          <div class="card" style="margin-bottom: 0.75rem; padding: 0.9rem;">
+            <h3 style="font-size: 0.92rem; color: var(--accent-cyan); margin-bottom: 0.35rem;">
               ⚙️ Custom Scikit-Learn Transformer Architecture
             </h3>
             <div class="code-box">
@@ -1155,42 +1411,25 @@
             </div>
           </div>
 
-          <div class="card" style="padding: 1rem; border-left: 3px solid var(--accent-purple);">
-            <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem;">
+          <div class="card" style="padding: 0.9rem; border-left: 3px solid var(--accent-purple);">
+            <div style="font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem;">
               Critical Serialization Fix (The Joblib Pickle Bug)
             </div>
-            <p style="font-size: 0.8rem; line-height: 1.4;">
+            <p style="font-size: 0.78rem; line-height: 1.4;">
               If defined in a Jupyter notebook, custom transformers serialize into module <code style="color:var(--accent-purple);">__main__</code>, triggering <code style="color:var(--danger);">AttributeError: Can't get attribute 'ScamFeatureExtractor'</code> during API unpickling. Packaging it into a standalone <code style="color:var(--accent-cyan);">features.py</code> guarantees seamless unpickling in FastAPI &amp; pytest.
             </p>
           </div>
         </div>
 
-        <!-- Right: Mathematical Entropy & Regex Engine -->
         <div>
-          <!-- Mathematical Formula Box -->
-          <div class="card" style="margin-bottom: 0.85rem; padding: 1rem;">
-            <h3 style="font-size: 0.95rem; color: var(--accent-purple); margin-bottom: 0.4rem;">
-              📐 Shannon Character Entropy Formula
-            </h3>
-            <div style="background: #020617; border: 1px solid var(--card-border); border-radius: 8px; padding: 0.85rem; text-align: center; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.25rem; font-family: var(--font-mono); color: var(--accent-green); font-weight: 700;">
-                H(X) = - &sum; P(x<sub>i</sub>) &middot; log<sub>2</sub> P(x<sub>i</sub>)
-              </span>
-            </div>
-            <p style="font-size: 0.8rem; line-height: 1.4;">
-              <strong>Why it matters:</strong> Obfuscated malicious links (e.g. <code style="color:var(--accent-cyan);">bit.ly/x7Q9zP_1</code>) and scrambled phone strings possess abnormally high character entropy compared to standard natural English text.
-            </p>
-          </div>
-
-          <!-- FeatureUnion Pipeline -->
-          <div class="card" style="padding: 1rem;">
-            <h3 style="font-size: 0.95rem; color: var(--accent-green); margin-bottom: 0.4rem;">
+          <div class="card" style="margin-bottom: 0.75rem; padding: 0.9rem;">
+            <h3 style="font-size: 0.92rem; color: var(--accent-green); margin-bottom: 0.35rem;">
               🔗 Scikit-Learn FeatureUnion Fusion
             </h3>
             <div class="code-box">
 pipeline = <span class="c-fn">Pipeline</span>([
     (<span class="c-str">'features'</span>, <span class="c-fn">FeatureUnion</span>([
-        (<span class="c-str">'tfidf'</span>, <span class="c-fn">TfidfVectorizer</span>(ngram_range=(<span class="c-num">1</span>,<span class="c-num">2</span>), max_features=<span class="c-num">8000</span>)),
+        (<span class="c-str">'tfidf'</span>, <span class="c-fn">TfidfVectorizer</span>(ngram_range=(<span class="c-num">1</span>,<span class="c-num">2</span>), max_features=<span class="c-num">8000</span>, sublinear_tf=<span class="c-kw">True</span>)),
         (<span class="c-str">'heuristics'</span>, <span class="c-fn">Pipeline</span>([
             (<span class="c-str">'extractor'</span>, <span class="c-fn">ScamFeatureExtractor</span>()),
             (<span class="c-str">'scaler'</span>, <span class="c-fn">StandardScaler</span>())
@@ -1200,14 +1439,23 @@ pipeline = <span class="c-fn">Pipeline</span>([
 ])
             </div>
           </div>
+
+          <div class="card" style="padding: 0.9rem;">
+            <h3 style="font-size: 0.92rem; color: var(--accent-cyan); margin-bottom: 0.35rem;">
+              ⚡ Precompiled Regex Engine
+            </h3>
+            <p style="font-size: 0.78rem; line-height: 1.4;">
+              Precompiling patterns at module load (<code style="color:var(--accent-cyan);">RE_URL</code>, <code style="color:var(--accent-purple);">RE_SHORT_URL</code>, <code style="color:var(--warning);">RE_PHONE</code>, <code style="color:var(--danger);">RE_URGENCY</code>) enables string searching in &lt; 0.02ms without runtime regex compilation overhead.
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= SLIDE 10 ================= -->
-    <div class="slide" id="slide-10">
+    <!-- ================= SLIDE 13 ================= -->
+    <div class="slide" id="slide-13">
       <span class="slide-tag">Experiment Tracking</span>
-      <h1>MLflow Experiment Tracking &amp; <span>Architecture Decisions</span></h1>
+      <h1>MLflow Experiment Tracking &amp; <span>Comparison Matrix</span></h1>
       <p class="subtitle">In accordance with the 'Why did you use it, and why is it better than the obvious alternative?' principle:</p>
 
       <!-- 4 Top KPI Cards from Actual Run -->
@@ -1235,7 +1483,7 @@ pipeline = <span class="c-fn">Pipeline</span>([
       </div>
 
       <!-- Experiment Comparison Matrix Table -->
-      <div class="card" style="padding: 1.15rem;">
+      <div class="card" style="padding: 1rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
           <h3 style="font-size: 0.95rem; color: var(--accent-purple);">Experiment Comparison Matrix 🔗</h3>
           <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">mlflow experiment: scamshield-ai-experiments</span>
@@ -1261,7 +1509,7 @@ pipeline = <span class="c-fn">Pipeline</span>([
               <td>90.08%</td>
               <td>0.8689</td>
               <td>0.9725</td>
-              <td style="color: var(--text-muted); font-size: 0.78rem;">High false positives; blind to character entropy &amp; shortened URL redirects.</td>
+              <td style="color: var(--text-muted); font-size: 0.76rem;">High false positives; blind to character entropy &amp; shortened URL redirects.</td>
             </tr>
             <tr>
               <td><strong>Run 2: 18 Domain Threat Heuristics + RF</strong></td>
@@ -1270,7 +1518,7 @@ pipeline = <span class="c-fn">Pipeline</span>([
               <td>78.25%</td>
               <td>0.8271</td>
               <td>0.9553</td>
-              <td style="color: var(--text-muted); font-size: 0.78rem;">Captures structural signals (phone, urgency), but misses linguistic context.</td>
+              <td style="color: var(--text-muted); font-size: 0.76rem;">Captures structural signals (phone, urgency), but misses linguistic context.</td>
             </tr>
             <tr style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid var(--accent-green);">
               <td><strong style="color: var(--accent-green);">Run 3: Champion Hybrid Pipeline (ScamShield)</strong></td>
@@ -1279,70 +1527,69 @@ pipeline = <span class="c-fn">Pipeline</span>([
               <td><strong style="color: #fff;">91.03%</strong></td>
               <td><strong style="color: #fff;">0.9149</strong></td>
               <td><strong style="color: #fff;">0.9858</strong></td>
-              <td style="color: var(--accent-green); font-size: 0.78rem;"><strong>Selected for production.</strong> Fusion of lexical n-grams &amp; domain threat indicators.</td>
+              <td style="color: var(--accent-green); font-size: 0.76rem;"><strong>Selected for production.</strong> Fusion of lexical n-grams &amp; domain threat indicators.</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- ================= SLIDE 11 ================= -->
-    <div class="slide" id="slide-11">
+    <!-- ================= SLIDE 14 ================= -->
+    <div class="slide" id="slide-14">
       <span class="slide-tag">Architectural Defense</span>
       <h1>Why This Architecture <span>Over Obvious Alternatives?</span></h1>
       <p class="subtitle">Every design choice addresses latency, cloud hosting expenses, feature obfuscation, and trust.</p>
 
-      <div class="grid-3" style="margin-bottom: 1rem;">
+      <div class="grid-3" style="margin-bottom: 0.85rem;">
         <div class="card" style="border-top: 3px solid var(--accent-cyan);">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); margin-bottom: 0.4rem;">DECISION 01</div>
-          <h3 style="font-size: 0.95rem;">Why Not Deep Learning / BERT (DeBERTa)?</h3>
-          <p style="font-size: 0.82rem; margin-top: 0.4rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan); margin-bottom: 0.35rem;">DECISION 01</div>
+          <h3 style="font-size: 0.92rem;">Why Not Deep Learning / BERT (DeBERTa)?</h3>
+          <p style="font-size: 0.8rem; margin-top: 0.35rem;">
             • BERT requires an expensive GPU cluster in production, has 100M+ parameters, and introduces <strong>200–500ms latency</strong>.<br><br>
             • ScamShield runs on standard low-cost CPU containers with <strong>&lt; 1ms inference latency</strong> (0.08ms), <strong>$0 GPU bills</strong>, and complete token-level explainability.
           </p>
         </div>
 
         <div class="card" style="border-top: 3px solid var(--accent-purple);">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-purple); margin-bottom: 0.4rem;">DECISION 02</div>
-          <h3 style="font-size: 0.95rem;">Why Not Standard CountVectorizer?</h3>
-          <p style="font-size: 0.82rem; margin-top: 0.4rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-purple); margin-bottom: 0.35rem;">DECISION 02</div>
+          <h3 style="font-size: 0.92rem;">Why Not Standard CountVectorizer?</h3>
+          <p style="font-size: 0.8rem; margin-top: 0.35rem;">
             • Scammers deliberately obfuscate words (e.g. <code style="color:var(--accent-cyan);">bit.ly</code>, <code style="color:var(--warning);">Rs. 14,999</code>, ALL-CAPS urgency).<br><br>
             • CountVectorizer treats tokens in isolation and completely ignores <strong>character entropy</strong>, URL redirects, and regex syntax ratios.
           </p>
         </div>
 
         <div class="card" style="border-top: 3px solid var(--accent-green);">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-green); margin-bottom: 0.4rem;">DECISION 03</div>
-          <h3 style="font-size: 0.95rem;">Why Probability Calibration?</h3>
-          <p style="font-size: 0.82rem; margin-top: 0.4rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-green); margin-bottom: 0.35rem;">DECISION 03</div>
+          <h3 style="font-size: 0.92rem;">Why Probability Calibration?</h3>
+          <p style="font-size: 0.8rem; margin-top: 0.35rem;">
             • Raw SVM or logistic margins output uncalibrated heuristic scores that distort real risks.<br><br>
             • <code style="color:var(--accent-green);">CalibratedClassifierCV</code> (Platt scaling with 3-fold CV) ensures a 90% risk score <strong>truly reflects a 9-in-10 probability</strong> of real fraud.
           </p>
         </div>
       </div>
 
-      <div class="card" style="background: rgba(255,255,255,0.02); padding: 0.85rem 1.25rem;">
+      <div class="card" style="background: rgba(255,255,255,0.02); padding: 0.75rem 1.15rem;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <strong style="color: #fff; font-size: 0.85rem;">Decision 04: Linear Hyperplane vs Heavy Trees on Sparse Text</strong>
-            <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
+            <strong style="color: #fff; font-size: 0.82rem;">Decision 04: Linear Hyperplane vs Heavy Trees on Sparse Text</strong>
+            <p style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.2rem;">
               With 8,000+ sparse TF-IDF features, linear classifiers find convex separating hyperplanes in 0.08ms without the exponential depth overhead and greedy overfitting of decision tree splits.
             </p>
           </div>
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); background: rgba(6, 182, 212, 0.1); padding: 0.25rem 0.6rem; border-radius: 4px;">
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan); background: rgba(6, 182, 212, 0.1); padding: 0.2rem 0.55rem; border-radius: 4px;">
             0.08ms CPU LATENCY
           </span>
         </div>
       </div>
     </div>
 
-    <!-- ================= SLIDE 12 ================= -->
-    <div class="slide" id="slide-12">
-      <span class="slide-tag">MLOps Pipeline</span>
-      <h1>Data Version Control (DVC) &amp; <span>Reproducibility</span></h1>
+    <!-- ================= SLIDE 15 ================= -->
+    <div class="slide" id="slide-15">
+      <span class="slide-tag">MLOps Infrastructure</span>
+      <h1>DVC Data Pipelines, <span>params.yaml &amp; CI/CD</span></h1>
       <p class="subtitle">Complete pipeline tracking: guaranteeing that any training experiment can be reproduced with a single command.</p>
 
-      <!-- DVC DAG Stepper -->
       <div class="dag-flow">
         <div class="dag-node"><strong>STAGE 1</strong>prepare_data</div>
         <div class="dag-arrow">&rarr;</div>
@@ -1358,8 +1605,8 @@ pipeline = <span class="c-fn">Pipeline</span>([
       </div>
 
       <div class="grid-2">
-        <div class="card" style="padding: 1rem;">
-          <h3 style="font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">
+        <div class="card" style="padding: 0.9rem;">
+          <h3 style="font-size: 0.92rem; color: var(--accent-cyan); margin-bottom: 0.4rem;">
             📄 Centralized Configuration (params.yaml)
           </h3>
           <div class="code-box">
@@ -1378,101 +1625,43 @@ pipeline = <span class="c-fn">Pipeline</span>([
           </div>
         </div>
 
-        <div class="card" style="padding: 1rem;">
-          <h3 style="font-size: 0.95rem; color: var(--accent-green); margin-bottom: 0.5rem;">
-            🔄 Deterministic Reproducibility with `dvc repro`
+        <div class="card" style="padding: 0.9rem;">
+          <h3 style="font-size: 0.92rem; color: var(--accent-purple); margin-bottom: 0.4rem;">
+            ⚙️ GitHub Actions CI/CD Pipeline
           </h3>
-          <p style="font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.75rem;">
-            • <strong>DVC DAG:</strong> Defined in <code style="color:var(--accent-cyan);">dvc.yaml</code> and locked with checksums in <code style="color:var(--accent-purple);">dvc.lock</code>.<br>
-            • <strong>Smart Caching:</strong> If dataset or code hasn't changed, stages are skipped instantly.<br>
-            • <strong>Model Metadata:</strong> Exact run ID (<code style="color:var(--accent-cyan);">9d9fe80681...</code>), git commit SHA, metrics, and timestamps logged automatically.
-          </p>
-          <div style="background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent-green); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.75rem; color: #A7F3D0;">
-            Command: <code style="color:#fff; font-weight:700;">dvc repro</code> triggers the entire training pipeline seamlessly.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= SLIDE 13 ================= -->
-    <div class="slide" id="slide-13">
-      <span class="slide-tag">CI/CD &amp; Deployment</span>
-      <h1>Automated GitHub Actions CI/CD &amp; <span>Docker Container</span></h1>
-      <p class="subtitle">From code commit to automated testing and production container image publication on Docker Hub.</p>
-
-      <div class="grid-2">
-        <!-- Left: CI/CD Pipeline Steps -->
-        <div class="card" style="padding: 1rem;">
-          <h3 style="font-size: 0.95rem; color: var(--accent-purple); margin-bottom: 0.75rem;">
-            ⚙️ GitHub Actions Workflow (.github/workflows/ci-cd.yml)
-          </h3>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.78rem;">
-            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; display: flex; justify-content: space-between;">
+          <div style="display: flex; flex-direction: column; gap: 0.45rem; font-family: var(--font-mono); font-size: 0.74rem;">
+            <div style="background: rgba(255,255,255,0.03); padding: 0.45rem 0.65rem; border-radius: 6px; display: flex; justify-content: space-between;">
               <span>1. Python 3.10 Setup &amp; Dependencies</span>
               <span style="color: var(--accent-green);">✓ Cached</span>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; display: flex; justify-content: space-between;">
+            <div style="background: rgba(255,255,255,0.03); padding: 0.45rem 0.65rem; border-radius: 6px; display: flex; justify-content: space-between;">
               <span>2. Code Quality &amp; Linting (ruff check .)</span>
               <span style="color: var(--accent-green);">✓ Passed</span>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; display: flex; justify-content: space-between;">
-              <span>3. Test Suite (pytest -v) — 13 Tests</span>
+            <div style="background: rgba(255,255,255,0.03); padding: 0.45rem 0.65rem; border-radius: 6px; display: flex; justify-content: space-between;">
+              <span>3. Automated Test Suite (pytest -v)</span>
               <span style="color: var(--accent-green);">✓ 13 Passed</span>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; display: flex; justify-content: space-between;">
-              <span>4. Docker Build &amp; Multi-stage Layer Cache</span>
-              <span style="color: var(--accent-green);">✓ Built</span>
+            <div style="background: rgba(255,255,255,0.03); padding: 0.45rem 0.65rem; border-radius: 6px; display: flex; justify-content: space-between;">
+              <span>4. Docker Build &amp; Publish</span>
+              <span style="color: var(--accent-cyan);">✓ scamshield-ai:latest</span>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; display: flex; justify-content: space-between;">
-              <span>5. Publish to Docker Hub (scamshield-ai:latest)</span>
-              <span style="color: var(--accent-cyan);">✓ Released</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Test Suite & Docker Hub Image Details -->
-        <div>
-          <div class="card" style="margin-bottom: 0.85rem; padding: 1rem;">
-            <h3 style="font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 0.4rem;">
-              🧪 Automated Pytest Test Suite (13 Rigorous Tests)
-            </h3>
-            <ul style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; padding-left: 1.15rem;">
-              <li><code style="color:#fff;">test_health_endpoint</code>: Verifies FastAPI is online and healthy</li>
-              <li><code style="color:#fff;">test_predict_scam_message</code>: Validates detection &amp; risk scores</li>
-              <li><code style="color:#fff;">test_latency_benchmark</code>: Ensures inference executes in &lt; 50ms</li>
-              <li><code style="color:#fff;">test_extractor_serialization</code>: Validates joblib unpickling resilience</li>
-            </ul>
-          </div>
-
-          <div class="card" style="padding: 1rem; border-color: rgba(6, 182, 212, 0.4);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-              <h3 style="font-size: 0.95rem; color: #fff;">🐳 Official Docker Container</h3>
-              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-green);">READY TO PULL</span>
-            </div>
-            <div class="code-box" style="font-size: 0.72rem; padding: 0.6rem 0.85rem;">
-docker pull bhagyashreebhagat/scamshield-ai:latest<br>
-docker run -p 8000:8000 -p 8501:8501 bhagyashreebhagat/scamshield-ai
-            </div>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">
-              Single multi-process container running FastAPI backend (:8000) and Streamlit frontend (:8501) via <code style="color:var(--accent-cyan);">entrypoint.sh</code>.
-            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= SLIDE 14 ================= -->
-    <div class="slide" id="slide-14">
-      <span class="slide-tag">Serving &amp; Demonstration</span>
-      <h1>FastAPI REST Microservice &amp; <span>Streamlit Live Demo</span></h1>
+    <!-- ================= SLIDE 16 ================= -->
+    <div class="slide" id="slide-16">
+      <span class="slide-tag">Cloud Serving &amp; Demonstration</span>
+      <h1>Live Cloud Deployments: <span>Streamlit &amp; Render</span></h1>
       <p class="subtitle">Decoupled microservice architecture: real-time JSON inference payload serving sub-millisecond predictions.</p>
 
       <div class="grid-2">
-        <!-- Left: API JSON Payload -->
-        <div class="card" style="padding: 1rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-            <h3 style="font-size: 0.95rem; color: var(--accent-cyan);">POST /predict (FastAPI Microservice)</h3>
-            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-green);">HTTP 200 OK • 0.08ms</span>
+        <div class="card" style="padding: 0.9rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 0.92rem; color: var(--accent-cyan);">POST /predict (Render Cloud API)</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-green);">HTTP 200 OK • 0.08ms</span>
           </div>
           <div class="code-box">
 <span class="c-cm">// REQUEST:</span>
@@ -1493,43 +1682,53 @@ docker run -p 8000:8000 -p 8501:8501 bhagyashreebhagat/scamshield-ai
           </div>
         </div>
 
-        <!-- Right: Live Demo Links & UI Guide -->
-        <div class="card" style="padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card" style="padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
-            <h3 style="font-size: 1.05rem; color: var(--accent-purple); margin-bottom: 0.5rem;">
-              🚀 Live Prototype Walkthrough
+            <h3 style="font-size: 1rem; color: var(--accent-purple); margin-bottom: 0.45rem;">
+              🚀 Live Cloud Prototype Access
             </h3>
-            <ol style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.15rem; margin-bottom: 1rem;">
-              <li>User pastes suspicious SMS / WhatsApp message</li>
-              <li>Frontend calls <code style="color:var(--accent-cyan);">FastAPI :8000/predict</code></li>
-              <li>Model executes 18 heuristic transforms + TF-IDF in &lt; 0.1ms</li>
-              <li>Displays interactive risk speedometer gauge (0–100)</li>
-              <li>Highlights exact scam tokens (urgency, phone, money amounts)</li>
-              <li>Outputs emergency consumer directive</li>
-            </ol>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
+              The system is completely deployed and accessible on public cloud infrastructure:
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <a href="https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/" target="_blank" style="text-decoration: none;">
+                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 0.65rem 0.85rem; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color:#fff; font-size:0.82rem; display:block;">⚡ Streamlit Cloud Web Application</strong>
+                    <span style="font-size:0.7rem; color:var(--text-muted); font-family:var(--font-mono);">Interactive consumer risk analyzer</span>
+                  </div>
+                  <span style="color:var(--danger); font-weight:700;">Open UI ↗</span>
+                </div>
+              </a>
+
+              <a href="https://scamshield-ai-r1o5.onrender.com/" target="_blank" style="text-decoration: none;">
+                <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6,182,212,0.3); border-radius: 8px; padding: 0.65rem 0.85rem; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color:#fff; font-size:0.82rem; display:block;">🌐 Render Production Deployment</strong>
+                    <span style="font-size:0.7rem; color:var(--text-muted); font-family:var(--font-mono);">FastAPI REST Microservice (:8000)</span>
+                  </div>
+                  <span style="color:var(--accent-cyan); font-weight:700;">Open API ↗</span>
+                </div>
+              </a>
+            </div>
           </div>
 
-          <div style="display: flex; gap: 0.75rem; justify-content: center; border-top: 1px solid var(--card-border); padding-top: 0.85rem;">
-            <a href="http://localhost:8501" target="_blank" style="text-decoration: none;">
-              <button class="primary">Open Streamlit UI (:8501) ↗</button>
-            </a>
-            <a href="http://localhost:8000/docs" target="_blank" style="text-decoration: none;">
-              <button>FastAPI Swagger Docs (:8000) ↗</button>
-            </a>
+          <div style="margin-top: 0.85rem; border-top: 1px solid var(--card-border); padding-top: 0.75rem; font-size: 0.74rem; color: var(--text-muted); font-family: var(--font-mono); text-align: center;">
+            Local fallback mirrors: Streamlit (localhost:8501) • FastAPI (localhost:8000/docs)
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= SLIDE 15 ================= -->
-    <div class="slide" id="slide-15">
+    <!-- ================= SLIDE 17 ================= -->
+    <div class="slide" id="slide-17">
       <span class="slide-tag">Validation &amp; Conclusion</span>
       <h1>Held-Out External Validation &amp; <span>Product Vision</span></h1>
       <p class="subtitle">Evaluated against completely unseen Indian cyber-threat messages, ready for consumer deployment.</p>
 
       <!-- Model Comparison on Benchmark -->
-      <div class="card" style="padding: 1.15rem; margin-bottom: 1rem;">
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-purple); text-transform: uppercase; margin-bottom: 0.4rem;">
+      <div class="card" style="padding: 1rem; margin-bottom: 0.85rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-purple); text-transform: uppercase; margin-bottom: 0.35rem;">
           External Validation Benchmark: 2,272 Unseen Indian Regional Messages
         </div>
         <table class="metric-table">
@@ -1573,14 +1772,14 @@ docker run -p 8000:8000 -p 8501:8501 bhagyashreebhagat/scamshield-ai
       </div>
 
       <!-- Bottom: Brand Vision Card -->
-      <div class="card" style="text-align: center; padding: 1.25rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(6, 182, 212, 0.05));">
-        <div style="font-family: var(--font-mono); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.2em; color: #fff; margin-bottom: 0.35rem;">
+      <div class="card" style="text-align: center; padding: 1.15rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(6, 182, 212, 0.05));">
+        <div style="font-family: var(--font-mono); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.2em; color: #fff; margin-bottom: 0.3rem;">
           <span style="color:var(--accent-green);">DETECT.</span> <span style="color:var(--accent-cyan);">EXPLAIN.</span> <span style="color:var(--danger);">WARN.</span>
         </div>
-        <div style="font-size: 1.05rem; font-weight: 600; color: var(--text); max-width: 800px; margin: 0 auto 0.75rem auto;">
+        <div style="font-size: 1rem; font-weight: 600; color: var(--text); max-width: 800px; margin: 0 auto 0.65rem auto;">
           “The goal isn't to make the decision for the user. It is to give them explainable warning signals before they act.”
         </div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">
           GitHub: <a href="https://github.com/BHAGATBHAGYASHREE/ScamShieldAI" target="_blank" style="color:var(--accent-cyan); text-decoration:none;">BHAGATBHAGYASHREE/ScamShieldAI</a> • Docker Hub: <span style="color:var(--accent-purple);">bhagyashreebhagat/scamshield-ai:latest</span>
         </div>
       </div>
@@ -1611,7 +1810,7 @@ docker run -p 8000:8000 -p 8501:8501 bhagyashreebhagat/scamshield-ai
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 15;
+    const totalSlides = 17;
 
     function updateSlide() {
       document.querySelectorAll('.slide').forEach((slide, index) => {

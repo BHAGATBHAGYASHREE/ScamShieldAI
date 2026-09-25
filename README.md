@@ -4,7 +4,13 @@
 [![Docker Image](https://img.shields.io/badge/docker-bhagyashreebhagat%2Fscamshield--ai-blue?logo=docker)](https://hub.docker.com/r/bhagyashreebhagat/scamshield-ai)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-brightgreen.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/API-FastAPI-009688.svg)](https://fastapi.tiangolo.com)
-[![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)](https://streamlit.io)
+[![Streamlit Cloud App](https://img.shields.io/badge/Streamlit%20Cloud-Live%20App-FF4B4B?logo=streamlit)](https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/)
+[![Render Cloud API](https://img.shields.io/badge/Render-Live%20API-46E3B7?logo=render)](https://scamshield-ai-r1o5.onrender.com/)
+
+**Live Deployments:**
+- ⚡ **Streamlit Web UI:** [https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/](https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/)
+- 🌐 **Render Production API:** [https://scamshield-ai-r1o5.onrender.com/](https://scamshield-ai-r1o5.onrender.com/)
+- 📊 **Interactive Deck:** [http://localhost:8088/presentation.html](http://localhost:8088/presentation.html)
 
 A production-grade machine learning system designed to protect mobile and digital communication consumers from smishing, fake delivery notices, banking fraud, and coercive social engineering attacks.
 

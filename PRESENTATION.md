@@ -2,11 +2,20 @@
 *Presenter: Bhagyashree Bhagat | Roll No. 34 | B.Tech CSE*
 *Course: Feature Engineering & MLOps | Individual Mini-Project*
 
-> **Interactive Presentation Deck:** Open [`presentation.html`](./presentation.html) or [`SCAMSHIELD_AI_PRESENTATION.html`](./SCAMSHIELD_AI_PRESENTATION.html) in your browser. Navigate seamlessly with your keyboard arrow keys (`←` / `→`) or click buttons. Evidence screenshots feature click-to-zoom modal view.
+> **Interactive Presentation Deck:** Open [`presentation.html`](./presentation.html) or [`SCAMSHIELD_AI_PRESENTATION.html`](./SCAMSHIELD_AI_PRESENTATION.html) in your browser. Navigate with keyboard arrow keys (`←` / `→`) or click buttons. Evidence screenshots feature click-to-zoom modal view.
 
 ---
 
-## 1. Presentation Structure Overview (15 Slides)
+## 1. Live Public Cloud Deployments
+
+- **⚡ Streamlit Cloud Web Application:** [https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/](https://bhagatbhagyashree-scamshieldai-streamlit-app-rctooz.streamlit.app/)
+- **🌐 Render Production API (FastAPI Microservice):** [https://scamshield-ai-r1o5.onrender.com/](https://scamshield-ai-r1o5.onrender.com/)
+- **📦 Docker Hub Official Image:** `docker pull bhagyashreebhagat/scamshield-ai:latest`
+- **📁 GitHub Source Code:** [https://github.com/BHAGATBHAGYASHREE/ScamShieldAI](https://github.com/BHAGATBHAGYASHREE/ScamShieldAI)
+
+---
+
+## 2. Complete 17-Slide Presentation Structure
 
 ```
 Part 1: The Human Story & Problem Pitch (Non-Technical & Story-Driven)
@@ -17,21 +26,60 @@ Part 1: The Human Story & Problem Pitch (Non-Technical & Story-Driven)
 ├── Slide 5: Meet ScamShield AI (Solution overview, 5-step flow, live prediction UI mockup)
 └── Slide 6: Product Differentiation (“Not Just Scam / Not Scam”: Detect, Explain, Classify)
 
-Part 2: Feature Engineering, ML & MLOps Technical Deep-Dive
-├── Slide 7: Data Strategy & Zero-Leakage Split (268K+ vocabulary, 10K intent, 2.2K unseen benchmark, 80/20 split)
-├── Slide 8: Feature Engineering Taxonomy (18+ domain heuristic dimensions across 4 families)
-├── Slide 9: Feature Engineering Architecture (`features.py`, Shannon Entropy H(X), Regex engine, FeatureUnion, Joblib fix)
-├── Slide 10: MLflow Experiment Tracking & Comparison Matrix (Runs 1, 2, 3 with accuracy, precision, recall, F1, ROC-AUC)
-├── Slide 11: Architectural Defense: Why Over Obvious Alternatives? (GPU vs CPU latency, CountVectorizer vs Entropy, Calibration)
-├── Slide 12: MLOps Pipeline & Reproducibility (DVC stages, dvc repro, params.yaml tracking)
-├── Slide 13: Automated CI/CD & Docker Container (GitHub Actions workflow, 13 pytest tests, Docker Hub image)
-├── Slide 14: System Serving Architecture & Live Demo (FastAPI REST JSON schemas, Streamlit live UI walkthrough)
-└── Slide 15: External Benchmark Results, Takeaways & Final Vision (2,272 unseen messages, latency benchmark, vision)
+Part 2: Feature Engineering Curriculum Alignment (The 5 Phases)
+├── Slide 7: Ingestion & Data Strategy (3-tier corpus, Stratified 80/20 split, Zero-leakage rule)
+├── Slide 8: Phase 1 — Foundations & Lifecycle (Bias-variance, Pipeline recipe, Derived vs Raw)
+├── Slide 9: Phase 2 — Cleaning, Scaling & Transformations (StandardScaler, sublinear_tf, missing values)
+├── Slide 10: Phase 3 — Feature Creation & Domain Heuristics (18 cyber-threat signals, Shannon Entropy H(X))
+└── Slide 11: Phase 4 & 5 — Selection & Dimensionality Defense (Filter min_df/max_df, L2 C=2.5, Sparse vs PCA)
+
+Part 3: Production Engineering, MLOps & Live Demonstration
+├── Slide 12: Code Architecture (`features.py`, BaseEstimator, TransformerMixin, FeatureUnion, Joblib fix)
+├── Slide 13: MLflow Experiment Tracking Matrix (Runs 1, 2, 3 with accuracy, precision, recall, F1, ROC-AUC)
+├── Slide 14: Architectural Defense: Why Over Obvious Alternatives? (BERT vs CPU, CountVectorizer vs Entropy, Calibration)
+├── Slide 15: MLOps Infrastructure (DVC stages, params.yaml, 13 pytest tests, GitHub Actions CI/CD)
+├── Slide 16: Live Cloud Deployments & Demonstration (Render API + Streamlit Cloud URLs, JSON schemas)
+└── Slide 17: Held-Out Benchmark Results & Product Vision (2,272 unseen messages, latency benchmark, vision)
 ```
 
 ---
 
-## 2. Key Engineering Metrics & Architectural Defenses (Rubric Core)
+## 3. Curriculum Mapping: 5 Phases of Feature Engineering
+
+### Phase 1: Foundations
+- **ML Lifecycle:** `data_loader.py` (Ingestion) $\rightarrow$ `features.py` (Transformation) $\rightarrow$ `train_mlflow.py` (Modeling & Tracking) $\rightarrow$ `app/main.py` (FastAPI Serving) $\rightarrow$ `streamlit_app.py` (Consumer Feedback).
+- **Bias-Variance Tradeoff:** Too few features underfits subtle social engineering cues; unconstrained 100k+ n-grams overfit on noisy typos. Bounded via `max_features=8000` + L2 penalty ($C=2.5$).
+- **Raw vs. Engineered:** Raw input message string is transformed into derived quantitative signals: `digit_ratio`, `uppercase_ratio`, `special_char_ratio`, and Shannon character entropy.
+- **Pipeline Automation (One Recipe):** Encapsulated `sklearn.pipeline.Pipeline` executes `fit()` strictly on `X_train` before any scaling or vectorization occurs, preventing vocabulary and distribution leakage into `X_test`.
+
+### Phase 2: Cleaning & Prep
+- **Missing Values:** Defensively handled in `extract_features_single()` with type-safe sanitization (`str(text) if pd.notna(text) else ""`) and neutral zero defaults, preventing runtime crashes on empty or null messages.
+- **Scaling Techniques:** `StandardScaler` standardizes the 18 continuous heuristic features into zero-mean, unit-variance ($z = \frac{x - \mu}{\sigma}$) inside `FeatureUnion`, ensuring large integers like message length don't dominate normalized ratios.
+- **Transformations & Skew Correction:**
+  - `sublinear_tf=True` applies a logarithmic scale $1 + \log(\text{tf})$ to term frequencies, preventing repeated spam words from skewing predictions.
+  - Normalized ratios (`digit_ratio`, `uppercase_ratio`) correct for text length skewness.
+
+### Phase 3: Feature Creation
+- **Time & Urgency Signals:** Coercion keywords with temporal deadlines (`urgent`, `immediately`, `within 24 hours`, `expires`, `action required`) extracted via precompiled regex `RE_URGENCY`.
+- **Domain Cyber-Threat Heuristics:** 18 handcrafted features:
+  - Communication hooks: `has_url`, `has_short_url` (bit.ly, tinyurl), `has_phone`, `has_currency` (₹, Rs), `has_email`.
+  - Structural entropy: $H(X) = -\sum P(x) \log_2 P(x)$ to distinguish human language from encrypted/shortened slugs.
+- **Curse of Dimensionality Management:** Combining n-grams can create combinatorial explosion (millions of pairs). We cap features at 8,000 using `max_features=8000` and `ngram_range=(1,2)`.
+
+### Phase 4: Feature Selection
+- **Filter Methods:** Term frequency thresholds (`min_df=3` removes rare typos/noise; `max_df=0.90` filters universal stop-words) filter features before model training.
+- **Embedded Methods (L2 Regularization):** Logistic regression with parameter $C=2.5$ applies ridge regularization, shrinking weights of redundant features while maintaining stability across correlated signals.
+- **Tree Importance:** In Run 2 (Random Forest), tree-based Gini importance validated that urgency, Shannon entropy, and phone count are the top predictive structural features.
+
+### Phase 5: Dimensionality Reduction & Sparsity Defense
+- **Why Sparse Linear Representation Over Dense PCA:**
+  - Dense PCA transforms sparse text matrices into dense principal components, which destroys token-level explainability (we could no longer highlight "bit.ly" or "₹3,000" to the user).
+  - High-dimensional sparse TF-IDF spaces (8,000 features) are naturally linearly separable.
+  - Linear inference runs in **0.08ms on standard CPU**, making PCA projection computationally unnecessary and counterproductive.
+
+---
+
+## 4. Key Engineering Metrics & Architectural Defenses
 
 ### Top MLflow Experiment Tracking Results
 - **Test Accuracy:** `95.11%` (↑ +2.97% over baseline)
@@ -45,26 +93,3 @@ Part 2: Feature Engineering, ML & MLOps Technical Deep-Dive
 | **Run 1: Baseline TF-IDF + Naive Bayes** | 92.14% | 83.92% | 90.08% | 0.8689 | 0.9725 | High false positives; blind to character entropy & shortened URL redirects. |
 | **Run 2: 18 Domain Threat Heuristics + RF** | 90.54% | 87.71% | 78.25% | 0.8271 | 0.9553 | Captures structural signals (phone, urgency), but misses linguistic context. |
 | **Run 3: Champion Hybrid Pipeline (ScamShield)** | **95.11%** | **91.96%** | **91.03%** | **0.9149** | **0.9858** | **Selected for production.** Fusion of lexical n-grams & domain threat indicators. |
-
----
-
-## 3. Four Core Architectural Defense Points
-
-1. **Why Not Deep Learning / BERT (DeBERTa)?**
-   - BERT requires an expensive GPU cluster in production, has 100M+ parameters, and introduces 200–500ms latency.
-   - ScamShield runs on standard CPU containers with `< 1ms inference latency` (0.08ms), zero cloud GPU bills, and full token-level explainability.
-2. **Why Not Standard CountVectorizer?**
-   - Scammers deliberately obfuscate words (e.g. `bit.ly`, `Rs. 14,999`, ALL-CAPS urgency). CountVectorizer treats tokens in isolation and ignores character entropy, URL redirects, and regex syntax ratios.
-3. **Why Probability Calibration (`CalibratedClassifierCV`)?**
-   - Raw linear SVM or logistic margins output uncalibrated scores that distort real risk. `CalibratedClassifierCV` (Platt scaling with 3-fold CV) ensures a 90% risk score truly reflects a 9-in-10 probability of fraud.
-4. **Why Standalone `features.py` Over Notebook Definitions?**
-   - Custom transformers defined in a notebook serialize into `__main__`, causing `AttributeError: Can't get attribute 'ScamFeatureExtractor'` when unpickled in FastAPI or pytest. Defining it in an importable module ensures exact reproducibility.
-
----
-
-## 4. End-to-End System Access Links
-- **Presentation Deck:** `http://localhost:8088/presentation.html`
-- **Streamlit Interactive UI:** `http://localhost:8501`
-- **FastAPI OpenAPI Swagger:** `http://localhost:8000/docs`
-- **GitHub Repository:** [BHAGATBHAGYASHREE/ScamShieldAI](https://github.com/BHAGATBHAGYASHREE/ScamShieldAI)
-- **Docker Hub Container Image:** `bhagyashreebhagat/scamshield-ai:latest`
