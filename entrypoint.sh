@@ -16,8 +16,9 @@ for i in $(seq 1 30); do
     sleep 1
 done
 
-echo "[ScamShield Entrypoint] Starting Streamlit UI on :8501..."
-streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port 8501 &
+STREAMLIT_PORT="${PORT:-8501}"
+echo "[ScamShield Entrypoint] Starting Streamlit UI on :${STREAMLIT_PORT}..."
+streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port "${STREAMLIT_PORT}" --server.enableCORS false --server.enableXsrfProtection false &
 UI_PID=$!
 
 trap 'echo "[ScamShield Entrypoint] Shutting down services..."; kill $API_PID $UI_PID 2>/dev/null' SIGTERM SIGINT

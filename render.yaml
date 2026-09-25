@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: scamshield-ai
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: API_URL
+        value: http://127.0.0.1:8000
