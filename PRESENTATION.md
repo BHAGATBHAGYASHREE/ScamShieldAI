@@ -21,17 +21,18 @@ According to the course brief:
 
 ## 2. Detailed Slide-by-Slide Pitch Script
 
-### Slide 1: The Hook — A Rs. 15,000 Order I Never Placed
+### Slide 1: The Hook — Live Evidence: "By Mistake Send 3000. Please Return Mam 2000."
 - **Visual on Slide:**
-  - Redacted screenshot of your actual incoming smishing SMS:
-    > *"Your order #AMZ-99381 of Rs. 14,999 has been placed. If you did not make this transaction, call our fraud desk immediately at +919876543210 or cancel at bit.ly/cancel-order-now"*
-  - Two key psychological highlights: **Manufactured Panic** and **Obfuscated Trap Door**.
+  - Real screenshots of the actual attack against the presenter:
+    - **Step 1 (`assets/scam_evidence_1.png`):** Scammer claims QR scanner failed, requests phone number, then fabricates a forged payment screenshot claiming ₹3,000 was paid.
+    - **Step 2 (`assets/scam_evidence_2.jpg`):** Scammer creates manufactured urgency: *"Hlo mam. By mistake send 3000. Please return mam 2000"*, attaching their own PhonePe QR code to siphon real money.
+    - **Outcome:** Presenter recognized the red flags and blocked `harbhajan___007`.
 - **Speaker Script (0:00 – 0:45):**
-  > *"Last month, my phone buzzed with an SMS. It claimed an Amazon order of fifteen thousand rupees had just been placed on my card. I hadn’t bought anything.*
+  > *"Look at the screen. This isn't a hypothetical example from a textbook—this happened directly to me on WhatsApp.*
   >
-  > *In that split second, rational thinking stops and adrenaline takes over: 'Has my account been compromised?' You instinctively reach to dial the 'fraud desk' or tap the cancellation link. In that exact moment of manufactured panic, billions of dollars are drained from innocent consumers every year.*
+  > *A buyer named 'Harbhajan' asked to purchase a 1,000 rupee item. He claimed his scanner was broken, got my phone number, and sent a fabricated screenshot claiming he 'accidentally paid 3,000 rupees.' Then came the emotional pressure: 'Hlo mam. By mistake send 3000. Please return mam 2000,' attaching his own PhonePe QR code.*
   >
-  > *This isn't annoying marketing spam. This is psychological warfare. And the worst part? Traditional spam filters let it right through."*
+  > *He never sent 3,000 rupees. It was a complete psychological trap. In that single moment of confusion, fear, and guilt, millions of innocent consumers send real money to fraudsters every single day. This is why we built ScamShield AI."*
 
 ---
 

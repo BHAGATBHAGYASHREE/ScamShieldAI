@@ -170,7 +170,13 @@ with st.sidebar:
         "The message induces panic so the victim calls the fake fraud desk or clicks the shortened cancel link."
     )
 
-    if st.button("🔥 Load Author's Real Fake Order SMS", use_container_width=True, type="primary"):
+    if st.button("🚨 Load Author's Real UPI Overpayment Attack", use_container_width=True, type="primary"):
+        st.session_state["input_message"] = (
+            "Hlo mam. By mistake send 3000. Please return mam 2000 to my PhonePe QR code immediately."
+        )
+        st.rerun()
+
+    if st.button("📦 Load Fake Order Alert SMS", use_container_width=True):
         st.session_state["input_message"] = (
             "Your order #AMZ-99381 of Rs. 14,999 has been placed. "
             "If you did not make this transaction, call our fraud desk immediately at +919876543210 "

@@ -167,6 +167,12 @@ def get_demo_samples():
     """Curated real-world test cases including the author's live unsolicited order alert."""
     return [
         {
+            "id": "demo_real_overpayment_scam",
+            "title": "Author's WhatsApp Attack: Fake Overpayment & Refund Lure",
+            "message": "Hlo mam. By mistake send 3000. Please return mam 2000 to my PhonePe QR code immediately.",
+            "description": "Real incident where fraudster fabricated a ₹3,000 payment screenshot to extract ₹2,000 refund."
+        },
+        {
             "id": "demo_real_fake_order",
             "title": "Real-World Unseen Case: Fake Order Notification",
             "message": "Your order #AMZ-99381 of Rs. 14,999 has been placed. If you did not make this transaction, call our fraud desk immediately at +919876543210 or cancel at bit.ly/cancel-order-now",

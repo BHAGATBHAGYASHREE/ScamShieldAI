@@ -205,6 +205,42 @@
       letter-spacing: 0.05em;
     }
 
+    .evidence-container {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      margin: 1.25rem 0;
+    }
+
+    .evidence-card {
+      background: #020617;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 0.75rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .evidence-img {
+      height: 260px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .evidence-img:hover {
+      transform: scale(1.04);
+      border-color: var(--accent);
+    }
+
+    .evidence-caption {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
     .speaker-notes {
       margin-top: 1.5rem;
       background: rgba(255, 255, 255, 0.03);
@@ -317,28 +353,39 @@
   <main>
     <!-- SLIDE 1: THE HOOK -->
     <div class="slide active" id="slide-1">
-      <span class="tag">The Problem</span>
-      <h1>A <span>Rs. 15,000 Order</span> I Never Placed.</h1>
-      <p class="subtitle">Last month, an unsolicited notification flashed on my phone inducing pure financial panic. This is how social engineering begins.</p>
+      <span class="tag">The Real-World Incident</span>
+      <h1>"By Mistake Send 3000. <span>Please Return Mam 2000</span>."</h1>
+      <p class="subtitle">Live evidence from my own phone: A scammer fabricated a ₹3,000 payment screenshot to extract ₹2,000 through manufactured urgency.</p>
       
+      <div class="evidence-container">
+        <div class="evidence-card">
+          <img src="assets/scam_evidence_1.png" alt="Scammer asking for phone number and sending fake receipt" class="evidence-img">
+          <div class="evidence-caption">Step 1: Fake Receipt Fabricated (₹3,000)</div>
+        </div>
+        <div class="evidence-card">
+          <img src="assets/scam_evidence_2.jpg" alt="Scammer demanding ₹2,000 refund with their QR" class="evidence-img">
+          <div class="evidence-caption">Step 2: Panic Lure & Fake Refund QR</div>
+        </div>
+      </div>
+
       <div class="sms-box">
-        💬 "Your order #AMZ-99381 of Rs. 14,999 has been placed. If you did not make this transaction, call our fraud desk immediately at +919876543210 or cancel at bit.ly/cancel-order-now"
+        💬 Scammer: "Hlo mam. By mistake send 3000. Please return mam 2000" [Sends QR Code] &rarr; User blocks fraudster.
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>⚠️ The Psychology of Smishing</h3>
-          <p>Scammers don't breach firewalls — they hack human psychology. By fabricating an unauthorized charge, they induce fear so victims call the fake call center or click the phishing URL.</p>
+          <h3>🎭 The "Overpayment" Trap</h3>
+          <p>The scammer never sent ₹3,000. They forged a receipt to create false guilt and urgent panic, pressuring the victim to "refund" ₹2,000 of their own hard-earned money.</p>
         </div>
         <div class="card">
-          <h3>🚫 Why Spam Filters Fail</h3>
-          <p>Traditional spam filters look for marketing spam ("Buy cheap medicine"). Modern smishing mimics legitimate enterprise order confirmations and bank KYC notifications.</p>
+          <h3>🚫 Why Spam Filters Failed</h3>
+          <p>This conversation happened over chat. No spam filter flagged it because it used conversational text and payment screenshots. We need proactive risk analysis before the user pays.</p>
         </div>
       </div>
 
       <div class="speaker-notes">
         <strong>Speaker Script (0:00 - 0:45)</strong>
-        "Imagine waking up to an SMS saying fifteen thousand rupees was charged to your card for an order you never made. Your heart races. You reach to click the cancel link or call the number. In that single second of panic, billions of dollars are stolen every year. This isn't marketing spam; it's psychological theft. That is why we built ScamShield AI."
+        "Look at the screen. This isn't a hypothetical case study from a textbook—this happened directly to me. A buyer named 'Harbhajan' asked for my QR code for a 1,000 rupee item. He claimed his scanner failed, got my phone number, and sent a fake screenshot claiming he 'accidentally paid 3,000 rupees.' Then came the panic: 'By mistake send 3000. Please return mam 2000,' attaching his own QR code. Millions fall for this emotional trap every year. In that split second of confusion, people send real money. That is why we built ScamShield AI."
       </div>
     </div>
 
