@@ -1,0 +1,51 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python src/data_loader.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 18934061c719ec12deb34f5774c8e08c.dir
+      size: 70655791
+      nfiles: 4
+    - path: src/data_loader.py
+      hash: md5
+      md5: 2af82d1bc19c2642669893a5f80c0e8a
+      size: 4648
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: ed0b97547bbbda52c57107f8ab57769e
+      size: 1001701
+    - path: data/processed/train.csv
+      hash: md5
+      md5: ab8eff13956ce05f6b8033617823abc5
+      size: 3996376
+  train_and_evaluate:
+    cmd: python src/train_mlflow.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: ed0b97547bbbda52c57107f8ab57769e
+      size: 1001701
+    - path: data/processed/train.csv
+      hash: md5
+      md5: ab8eff13956ce05f6b8033617823abc5
+      size: 3996376
+    - path: features.py
+      hash: md5
+      md5: 3097370004381c42ff29df4bcedb29e1
+      size: 13481
+    - path: src/train_mlflow.py
+      hash: md5
+      md5: e2bc7f6417ac20a754cb7badcef92cb8
+      size: 9551
+    outs:
+    - path: models/model_metadata.json
+      hash: md5
+      md5: 17e3aa43dabb054a03e8873b5e624f77
+      size: 563
+    - path: models/scamshield_pipeline.joblib
+      hash: md5
+      md5: 5f4546121f4f1cef043fcd1fc8e807c1
+      size: 497248
