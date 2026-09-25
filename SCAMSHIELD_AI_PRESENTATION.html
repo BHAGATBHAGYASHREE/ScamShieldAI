@@ -778,6 +778,17 @@
       opacity: 0.3;
       cursor: not-allowed;
     }
+
+    body.export-mode footer {
+      display: none !important;
+    }
+    body.export-mode main {
+      height: calc(100vh - 70px) !important;
+      padding-bottom: 1.5rem;
+    }
+    body.export-mode .slide {
+      height: calc(100vh - 100px) !important;
+    }
   </style>
 </head>
 <body>
@@ -1961,6 +1972,14 @@ pipeline = <span class="c-fn">Pipeline</span>([
   <script>
     let currentSlide = 1;
     const totalSlides = 19;
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('export') === 'true') {
+      document.body.classList.add('export-mode');
+    }
+    const slideParam = parseInt(urlParams.get('slide'));
+    if (slideParam && slideParam >= 1 && slideParam <= totalSlides) {
+      currentSlide = slideParam;
+    }
 
     function updateSlide() {
       document.querySelectorAll('.slide').forEach((slide, index) => {
