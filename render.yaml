@@ -1,13 +1,13 @@
 services:
   - type: web
-    name: scamshield-ai
-    env: docker
-    dockerfilePath: ./Dockerfile
+    name: faarzi-ai
+    runtime: python
     plan: free
     region: oregon
-    healthCheckPath: /
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: bash entrypoint.sh
     envVars:
-      - key: PORT
-        value: 8501
+      - key: PYTHON_VERSION
+        value: 3.11.9
       - key: API_URL
         value: http://127.0.0.1:8000
