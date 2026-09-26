@@ -62,8 +62,8 @@ async def lifespan(app: FastAPI):
     metadata = {}
 
 app = FastAPI(
-    title="ScamShield AI API",
-    description="Consumer Cybersecurity Scam Communication Risk Analyzer",
+    title="FAARZI AI API",
+    description="Asli Ya Farzi? Counterfeit Communication & Financial Fraud Risk Analyzer",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -86,7 +86,7 @@ def health():
         status="healthy" if pipeline is not None else "degraded",
         model_loaded=pipeline is not None,
         model_version=metadata.get("version", "1.0.0"),
-        model_name=metadata.get("model_name", "ScamShield-AI-Champion"),
+        model_name=metadata.get("model_name", "FAARZI-AI-Champion"),
         accuracy=float(metrics.get("accuracy", 0.9511)),
         precision=float(metrics.get("precision", 0.9196)),
         recall=float(metrics.get("recall", 0.9103)),

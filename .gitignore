@@ -53,3 +53,6 @@ data/processed/*.csv
 # Large 68MB CSV to keep git repo fast and avoid GitHub large file limits
 data/raw/dataset_v3_for_deberta.csv
 dataset_v3_for_deberta.csv
+
+# Temporary presentation export artifacts
+exports/
